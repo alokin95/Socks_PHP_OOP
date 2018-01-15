@@ -1,0 +1,494 @@
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+header {
+  box-shadow: 0 0 15px 0 #817e81;
+  position: fixed;
+  background-color: white;
+  z-index: 2;
+  width: 100%;
+}
+
+.logo {
+  flex: 1;
+}
+
+nav {
+  flex: 3;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 30px 80px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.cart {
+  flex: 1;
+  text-align: center;
+}
+main {
+  position: relative;
+  top: 85px;
+}
+
+.cover {
+  min-height: 691px;
+  background-image: url('../img/other/cover.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% 50%;
+  padding: 10%;
+}
+
+.hero {
+  width: 80%;
+  margin-left: 4%;
+}
+
+.hero h1 {
+  font-size: 68px;
+  font-weight: bold;
+}
+
+.hero p {
+  margin-top: 45px;
+  color: white;
+  font-weight: bold;
+  letter-spacing:2px;
+  font-size: 18px;
+  line-height: 30px
+}
+
+.shop-now-btn {
+  padding: 15px;
+  position: absolute;
+  border-radius: 25px;
+  width: 130px;
+  margin-top: 20px;
+  border: 2px solid black;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  line-height: 25px;
+}
+
+.hero button:hover {
+  background-color: black;
+  color:white;
+}
+
+.arrivals {
+  min-height: 500px;
+  /*background-color: rgb(241, 241, 241);*/
+  background-color: white;
+}
+
+.arrivals p {
+  position: relative;
+  left: -100px;
+  width:200px;
+  transition: left 1s;
+}
+
+.trail {
+  height:500px;
+  background-color: rgb(241, 241, 241);
+}
+
+.trail-bg {
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  background-image: url('../img/sections/trail-bg.png');
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.trail-socks {
+  height: 500px;
+  width:50%;
+  float: right;
+  position: relative;
+  background-image: url('../img/sections/trail-fg.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.trail-text {
+  max-width: 33%;
+  margin-left: 13%;
+  padding-top: 130px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.trail-text h1, .mnt-text h1 {
+  font-size: 48px;
+  display: inline;
+  color: #333;
+}
+
+.trail-heading::after {
+  background-color: #fe5a7d;
+  content: '';
+  display: block;
+  height: 2px;
+  margin-top: 17px;
+  width: 170px;
+}
+
+.trail-text p, .mnt-text p {
+  margin-top: 15px;
+  letter-spacing:2px;
+  font-size: 15px;
+  line-height: 30px;
+  color: #333;
+}
+
+.trail-text button:hover {
+  background-color: #fe5a7d;
+  color: white;
+  border-color: #fe5a7d;
+  cursor: pointer;
+}
+
+.mountain {
+  height: 500px;
+  background-color: white;
+}
+
+.mountain-bg {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  background-image: url('../img/sections/mnt-bg.png');
+  background-position: left;
+  background-repeat: no-repeat;
+}
+
+.mountain-socks {
+  width:50%;
+  height: 500px;
+  position: relative;
+  float:left; 
+  background-image: url('../img/sections/mnt-fg.png');
+  background-repeat: no-repeat;
+  background-position: left;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mnt-text {
+  float: right;
+  max-width: 33%;
+  padding-top:130px;
+  margin-right: 13%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mnt-text h1::after {
+  background-color: #41cbb0;
+  content: '';
+  display: block;
+  height: 2px;
+  margin-top: 17px;
+  width: 170px;
+}
+
+.mnt-text button:hover {
+  background-color: #41cbb0;
+  border-color: #41cbb0;
+  color: white;
+  cursor: pointer;
+}
+
+.road {
+  height:500px;
+  background-color: rgb(241, 241, 241);
+}
+
+.road-bg {
+  height: 500px;
+  width: 100%;
+  position: absolute;
+  background-image: url('../img/sections/road-bg.png');
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.road-socks {
+  background-image: url('../img/sections/road-fg.png');
+  position: relative;
+  width: 50%;
+  height: 500px;
+  float: right;
+  background-repeat: no-repeat;
+  background-position: right;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.road-heading::after{
+  background-color: #FD8E00;
+  content: '';
+  display: block;
+  height: 2px;
+  margin-top: 17px;
+  width: 170px;
+}
+
+.road-socks button:hover {
+  background-color: #FD8E00;
+  border-color: #FD8E00;
+  color: white;
+  cursor: pointer;
+}
+
+.shop-now {
+  width:100%;
+  min-height: 400px;
+  background-image: url('../img/sections/shop-now.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+}
+
+.shop-now-text {
+  flex-basis:33%;
+  text-align: center;
+  margin: auto;
+}
+
+.shop-now-text h1 {
+  margin-top:10px;
+  font-size: 3em;
+}
+
+.btn-white {
+  color:white;
+  padding: 15px;
+  border-radius: 25%;
+  width: 50%;
+  margin-top: 20px;
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-white:hover{
+  border-color: white;
+  color: black;
+  background-color: white;
+}
+
+.benefits {
+  min-height: 700px;
+  width: 100%;
+  position: relative;
+}
+
+.left {
+  position: absolute;
+  color: #333;
+  font-size: 25px;
+  margin-top: 10%;
+  margin-left: 12%;
+  z-index: 1;
+}
+
+.benefits-buttons {
+  min-height: 110px;
+  width: 100%;
+  position: absolute;
+}
+
+.benefit-btn {
+  flex-basis: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.util-btn {
+  background-image: url('../img/benefits/util.png');
+}
+
+.blister-btn {
+  background-image: url('../img/benefits/blister.png');
+}
+
+.manage-btn {
+  background-image: url('../img/benefits/manage.png');
+}
+
+.dark {
+  background-image: url('../img/benefits/util-bg.png');
+}
+
+.dark1 {
+  background-image: url('../img/benefits/blister-bg.png');
+}
+
+.dark2 {
+  background-image: url('../img/benefits/manage-bg.png');
+}
+
+.benefit-bg {
+  background-position: right;
+  background-size: contain;
+  width: 100%;
+  min-height: 700px;
+  background-repeat: no-repeat;
+  display: none;
+  /*opacity: 0.5;
+  /*transition: opacity 2s;
+ /* animation-name: fade;
+  animation-duration: 0.5s;*/
+}
+
+.description {
+  margin-left: 12%;
+  margin-top: 21%;
+  width: 30%;
+  line-height: 2;
+}
+
+.description h1 {
+  position: relative;
+  top: 20px;
+  color: #333;
+}
+
+.description p {
+  font-weight: bold;
+  margin-top: 40px;
+  font-size: 16px;
+  color:#747779;
+}
+
+.util {
+  background-image: url('../img/benefits/1.png');
+  background-color: #DEEDF4;
+  position: absolute;
+}
+
+.blister {
+  background-image: url('../img/benefits/2.png');
+  background-color:#D8C9C5;
+  position: absolute;
+}
+
+.manage {
+  background-image: url('../img/benefits/3.png');
+  background-color:#EAECEA;
+  position: absolute;
+}
+
+.register {
+  min-height: 700px;
+  width: 100%;
+  padding: 10%;
+  background-color: #F6F7F8;
+  text-align: center;
+}
+
+.register h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.register input {
+  border: 1px solid #c7c7c7;
+  height: 50px;
+  width: 50%;
+  border-radius: 25px;
+  color: #798189;
+  padding: 0 29px;
+  margin: 10px auto;
+}
+
+.register-btn {
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+}
+
+/*ANIMATIONS*/
+
+/*BENEFITS FADE*/
+.fade {
+  animation-name: fade;
+  animation-duration: 0.5s;
+  opacity: 1;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+/*BENEFITS END*/
+
+/*SLIDE RIGHT*/
+.slideToRight {
+  animation-name: slideToRight;
+  animation-duration: 1s;
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes slideToRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-70%);
+} 
+100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+  }
+}
+/*SLIDE RIGHT END*/
+
+/*SLIDE TO LEFT*/
+.slideToLeft {
+  animation-name: slideToLeft;
+  animation-duration: 1s;
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes slideToLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(70%);
+} 
+100% {
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+  }
+}
+/*SLIDE LEFT END*/
