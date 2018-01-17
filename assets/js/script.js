@@ -105,7 +105,7 @@ function scrollFirst(posY){
 
 function scrollSecond(posY){
 
-  if (posY > 1250) {
+  if (posY > 1300) {
 
     document.getElementById("mountainText").classList.add('slideToLeft');
     document.getElementById("mountainSocks").classList.add('slideToRight');
@@ -115,7 +115,7 @@ function scrollSecond(posY){
 
 function scrollThird(posY){
 
-  if (posY > 1750) {
+  if (posY > 1800) {
 
     document.getElementById("roadText").classList.add('slideToRight');
     document.getElementById("roadSocks").classList.add('slideToLeft');
