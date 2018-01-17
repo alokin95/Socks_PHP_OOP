@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
     <link rel='stylesheet' type='text/css' href='./assets/css/main.css'>
     <title>TITLE</title>
   </head>
@@ -20,9 +21,8 @@
 
             
              while ($n = mysqli_fetch_array($nav)){
-                echo "<li><a href='".$n['link']."".$n['navid']."'>" .$n['title']. "</a>";
+                echo "<li><a href='".$n['link']."'>".$n['title']."</a></li>";
              }
-
           ?>
         </ul>
       </nav>
