@@ -1,5 +1,5 @@
 * {
-  font-family: sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -32,7 +32,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  padding: 30px 80px;
+  padding: 30px 50px;
 }
 
 nav a {
@@ -71,7 +71,7 @@ main {
 }
 
 .hero p {
-  margin-top: 45px;
+  margin-top: 40px;
   color: white;
   font-weight: bold;
   letter-spacing:2px;
@@ -407,6 +407,64 @@ main {
   background-image: url('../img/benefits/3.png');
   background-color:#EAECEA;
   position: absolute;
+}
+
+.products-content {
+  min-height: 800px;
+  width:100%;
+  padding:2%;
+  background-color: #F6F7F8;
+}
+
+.filter {
+  margin-top: 50px;
+  flex:1;
+  background-color: white;
+}
+
+.products {
+  text-align: center;
+  flex:5;
+  margin-top:50px;
+}
+
+.products img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product {
+  width: 30%;
+  height: 350px;
+  display: inline-block;
+}
+
+.product-details {
+  background-color: #F6F7F8;
+}
+
+.product-image {
+  flex: 1;
+  min-height: 600px;
+  padding: 5%;
+  text-align: center;
+}
+.product-description {
+  width: 100%;
+  height: 200px;
+}
+
+.product-right {
+  flex: 1;
+  min-height: 600px;
+  text-align: center;
+  font-size: 21px;
+  padding-top: 100px;
+}
+
+hr {
+  width: 50%;
+  margin: 60px auto;
 }
 
 .register {
