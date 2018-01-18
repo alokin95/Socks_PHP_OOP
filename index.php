@@ -1,9 +1,8 @@
 <?php 
   
-  require_once 'views/header.php';
+  require_once 'views/partials/header.php';
 
   if (!isset($_GET['page']) || $_GET['page']==1){
-    $_GET['page']='daa';
     require_once 'views/home.php';
   }
 
@@ -19,4 +18,4 @@
     require_once 'views/details.php';
   }
 
-  require_once 'views/footer.php';
+  require_once 'views/partials/footer.php';
