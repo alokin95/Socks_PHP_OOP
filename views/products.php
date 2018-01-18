@@ -1,6 +1,6 @@
 <?php
 
-$categoryid = $_GET['category'];
+$categoryid = $_GET['category'] ?? 1;
 if (empty($categoryid)){
   //header("Location:index.php?page=1");
   $categoryid = 1;
