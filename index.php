@@ -1,6 +1,6 @@
 <?php 
   
-  require_once 'views/partials/header.php';
+  require_once 'partials/header.php';
 
   if (!isset($_GET['page']) || $_GET['page']==1){
     require_once 'views/home.php';
@@ -18,4 +18,4 @@
     require_once 'views/details.php';
   }
 
-  require_once 'views/partials/footer.php';
+  require_once 'partials/footer.php';
