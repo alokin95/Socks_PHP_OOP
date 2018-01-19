@@ -1,5 +1,8 @@
 <?php 
   
+  require_once 'Connection.php';
+  $conn = Connection::make();
+  
   require_once 'partials/header.php';
 
   if (!isset($_GET['page']) || $_GET['page']==1){

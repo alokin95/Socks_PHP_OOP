@@ -14,7 +14,6 @@
       <nav>
         <ul>
           <?php
-            include './connection.inc';
 
             $get_nav = "SELECT * FROM nav";
             $nav = mysqli_query($conn, $get_nav);

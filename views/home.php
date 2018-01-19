@@ -4,7 +4,7 @@
         <p>
             Grab a pair of our socks to help you keep going step<br/> after step! Every pair of toesocks provides blister<br/> protection, total foot utilization and moisture<br/> management.
         </p>
-        <a href='#'><button class='shop-now-btn'>Shop now</button></a>
+        <a href='index.php?page=2''index.php?page=2''index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
       </div>
     </section>
     <section class='arrivals'>
@@ -20,7 +20,7 @@
           <p>
             Tackle the trails blister-free while keeping dirt and debris out so you can keep going mile after mile.  
           </p>
-          <a href='#'><button class='shop-now-btn'>Shop now</button></a>
+          <a href='index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
     </div>
     </section>
     <section class='mountain'>
@@ -33,7 +33,7 @@
           <p>
             Support for every adventure, big or small—not to<br/> mention protection from unpredictable elements and terrain.
           </p>
-          <a href='#'><button class='shop-now-btn'>Shop now</button></a>
+          <a href='index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
         </div>
     </section>
     <section class='road'>
@@ -46,14 +46,14 @@
         <p>
           Take your run to the next level with our patented five-toe advantage and experience blister-free comfort. 
         </p>
-        <a href='#'><button class='shop-now-btn'>Shop now</button></a>
+        <a href='index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
       </div>
     </section>
     <section class='shop-now flex-row'>
       <div class="shop-now-text">
         <h2>Compare product lines</h2>
         <h1>Find Your Sock</h1>
-        <a href='#'><button class='btn-white'>Shop now</button></a>
+        <a href='index.php?page=2'><button class='btn-white'>Shop now</button></a>
       </div>
     </section>
     <section class='benefits'>

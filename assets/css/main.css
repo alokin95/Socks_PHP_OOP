@@ -440,10 +440,12 @@ main {
 }
 
 .product-details {
-  background-color: #F6F7F8;
+  color: #333;
 }
 
 .product-image {
+  position: relative;
+  top: 100px;
   flex: 1;
   min-height: 600px;
   padding: 5%;
@@ -452,14 +454,18 @@ main {
 .product-description {
   width: 100%;
   height: 200px;
+  text-align: left;
+  line-height: 2em;
 }
 
 .product-right {
+  position: relative;
+  right:20px;
+  top: 100px;
   flex: 1;
   min-height: 600px;
   text-align: center;
   font-size: 21px;
-  padding-top: 100px;
 }
 
 hr {
