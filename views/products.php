@@ -14,6 +14,11 @@ $products = mysqli_query($conn, $get_products);
 
 <section class='products-content flex-row'>
   <div class='filter'>
+  <form id='form' method='post' action="<?php echo $_SERVER['php_self']?>">
+    <input type='radio' name='filter' id='unisex' value='djoka'>Unisex
+    <br/>
+    <input type='radio' name='filter' id='female' value='pizda'>Female
+  </form>
   </div>
   <div class='products'>
     <?php
@@ -30,3 +35,26 @@ $products = mysqli_query($conn, $get_products);
   
   </div>
 </section>
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+  $('[name=filter]').on('click', function(){
+    var cat = $(this).val();
+    $.ajax({
+      type:"POST",
+      url:"test.php",
+      data:{
+        cat: cat
+      },
+      success: function(response){
+        console.log(response);
+      }
+    })
+  })
+})
+
+
+</script>-->
