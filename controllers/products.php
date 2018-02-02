@@ -1,10 +1,13 @@
 <?php
+  
   require_once 'classes/Product.php';
 
-  $product = new Product($conn);
+  $product = new Product();
   
   $result = $product->getProducts();
 
- // $row = mysqli_fetch_object($result);
+  $row = mysqli_fetch_object($result);
 
-  require_once view('products',$result);
+  require view('products', $result);
+
+  // require 'views/products.template.php';

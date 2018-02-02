@@ -39,7 +39,7 @@
       //   ";
       // }
 
-      // ?>
+      ?>
     <?php  while ($row = mysqli_fetch_object($result)) { ?>
 
       <div class='product'>
