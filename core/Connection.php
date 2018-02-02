@@ -1,12 +1,20 @@
 <?php
 
-class Connection {
-  
-  public static function make($config) {
-	  
-    //return mysqli_connect("localhost", "root", "", "socks");
+  class Connection {
+    
+    private $conn;
 
-    return mysqli_connect($config['connection'], $config['username'], $config['password'], $config['name']);
-	
+    public function __construct() {
+      
+      $this->conn = mysqli_connect("localhost", "root", "", "socks");
+    
+    }
+
+    public function execute($query) {
+
+      $result = mysqli_query($this->conn, $query);
+
+      return $result;
+
+    }
   }
-}
