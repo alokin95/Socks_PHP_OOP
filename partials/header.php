@@ -16,11 +16,12 @@
           <?php
 
             $get_nav = "SELECT * FROM nav";
-            $nav = mysqli_query($conn, $get_nav);
+
+            $nav = $conn->execute($get_nav);
 
             
-             while ($n = mysqli_fetch_array($nav)){
-                echo "<li><a href='".$n['link']."'>".$n['title']."</a></li>";
+             while ($n = mysqli_fetch_object($nav)){
+                echo "<li><a href='".$n->link."'>".$n->title."</a></li>";
              }
           ?>
         </ul>
