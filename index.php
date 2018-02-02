@@ -5,7 +5,7 @@
   require_once 'partials/header.php';
 
   $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');  
-
+  
   if ($uri == '' || $uri == 'index') {
     require_once 'controllers/home.php';
   }
@@ -15,8 +15,11 @@
   elseif ($uri == 'index/details'){
     require_once 'controllers/details.php';
   }
+  elseif($uri == 'index/register' && ($_SERVER['REQUEST_METHOD']=="POST")){
+   require 'controllers/register.php';
+  }
   elseif ($uri == 'index/register'){
-    require_once 'views/register.php';
+    require_once 'views/register.template.php';
   }
   else {
     echo "<h1>PAGE NOT FOUND
