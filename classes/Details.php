@@ -1,13 +1,12 @@
 <?php
 
-  class Details {
+  class Details extends Connection{
 
-    private $conn;
     private $id;
 
-    public function __construct($conn) {
+    public function __construct() {
 
-      $this->conn = $conn;
+      parent::__construct();
       $this->id = $_GET['productid'] ?? 1;
 
     }
@@ -16,7 +15,7 @@
 
       $sql = "SELECT productid AS id, p.name as productname, description as productdescription, price as productprice, p.categoryid as catid, genderid as genderid, p.imageid as imgid, src, alt FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE productid =".$this->id;
 
-      $result = mysqli_query($this->conn, $sql);
+      $result = $this->execute($sql);
 
       $r = mysqli_fetch_object($result);
 

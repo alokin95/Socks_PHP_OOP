@@ -1,13 +1,12 @@
 <?php
 
-  class Product {
+  class Product extends Connection{
     
-    private $conn;
     private $id;
 
-    public function __construct($conn) {
+    public function __construct() {
 
-      $this->conn = $conn;
+      parent::__construct();
       $this->id = $_GET['category'] ?? 1;
 
     }
@@ -15,11 +14,13 @@
     public function getProducts() {
 
       $sql = "SELECT * FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE p.categoryid = ".$this->id;
-
-      $result = mysqli_query($this->conn, $sql);
+      $result = $this->execute($sql);
+      //$result = mysqli_query($this->conn, $sql);
 
       return $result;
 
     }
 
   }
+
+  
