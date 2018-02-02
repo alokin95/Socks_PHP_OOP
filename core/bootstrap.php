@@ -1,14 +1,15 @@
 <?php
 
 
-$config = require_once 'config.php';
+  // $config = require_once 'config.php';
 
-require_once 'Connection.php';
+  require_once 'Connection.php';
 
-$conn = Connection::make($config['database']);
+  $conn = new Connection();
 
-function view($template, $data) {
+  function view($template, $data) {
 
-  $result = $data;
-  require 'views/'.$template.'.template.php';
-}
+    $result = $data;
+    return 'views/'.$template.'.template.php';
+    
+  }
