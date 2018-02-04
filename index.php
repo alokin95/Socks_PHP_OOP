@@ -26,7 +26,7 @@ session_start();
 //     }
 // }
 
-$router = new Router;
+$router = new Route;
 
 $router->get('','controllers/home.php');
 $router->get('index','controllers/home.php');

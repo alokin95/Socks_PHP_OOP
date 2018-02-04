@@ -7,7 +7,7 @@
 
   $conn = new Connection();
 
-  require_once 'Router.php';
+  require_once 'Route.php';
 
   function view($template, $data) {
 
