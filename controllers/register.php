@@ -11,8 +11,8 @@
    
     $register = new Register($first, $last, $password, $mail);
 
-    $reult = $register->registerUser();
+    $register->registerUser();
 
-
+    require_once 'views/register.template.php';
 
   }

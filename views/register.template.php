@@ -6,7 +6,7 @@
 
 <section class="register">
   <h1>Create New Customer Account</h1>
-  <form id='insert' method='POST' action="/index/register">
+  <form id='insert' method='POST' action="/register">
     <input type='text' name='firstName' id='firstName'/><br/>
     <input type='text' name='lastName' id='lastName'/><br/>
     <input type='password' name='password' id='password'/><br/>

@@ -1,30 +1,69 @@
 <?php 
-
+  //ROUTE KLASA KOJA IMA DEFINE METODU U KOJU UBACUJES RUTE I ONDA IH DEFINISE GORE U OBJEKTU: $this->routes = $routes
+  //Pravim novi ROUTE objekat $router, pozivam define klasu i smestam sve te rute
+  //$router->direct(uri, method_type);
   require_once 'core/bootstrap.php';
   
   require_once 'partials/header.php';
 
-  $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');  
+  class Router{
+
+    private $routes = [
+        'GET' => [],
+        'POST' => []
+    ];
+    public function get($uri, $controller) {
+        $this->routes['GET'][$uri] = $controller;
+    }
+    public function post($uri, $controller)  {
+        $this->routes['POST'][$uri] = $controller;
+    }
+    public function direct($uri, $request){
+        if (array_key_exists($uri, $this->routes[$request])) {
+            return $this->routes[$request][$uri];
+        }
+        else {
+          return $this->routes['GET'][''];
+        }
+    }
+}
+
+$router = new Router;
+$router->get('','controllers/home.php');
+$router->get('index','controllers/home.php');
+$router->get('products','controllers/products.php');
+$router->get('details','controllers/details.php');
+$router->get('register','views/register.template.php');
+$router->post('register','controllers/register.php');
+
+$uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');
+$method = $_SERVER['REQUEST_METHOD'];
+
+
+require $router->direct($uri, $method);
+
+
+  // $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');  
   
-  if ($uri == '' || $uri == 'index') {
-    require_once 'controllers/home.php';
-  }
-  elseif ($uri == 'index/products') {
-    require_once 'controllers/products.php';
-  }
-  elseif ($uri == 'index/details'){
-    require_once 'controllers/details.php';
-  }
-  elseif($uri == 'index/register' && ($_SERVER['REQUEST_METHOD']=="POST")){
-   require 'controllers/register.php';
-  }
-  elseif ($uri == 'index/register'){
-    require_once 'views/register.template.php';
-  }
-  else {
-    echo "<h1>PAGE NOT FOUND
-    back to <a href='/index'>Index</a></h1>";
-  }
+  // if ($uri == '' || $uri == 'index') {
+  //   require_once 'controllers/home.php';
+  // }
+  // elseif ($uri == 'products') {
+  //   require_once 'controllers/products.php';
+  // }
+  // elseif ($uri == 'details'){
+  //   require_once 'controllers/details.php';
+  // }
+  // elseif($uri == 'new' && ($_SERVER['REQUEST_METHOD']=="POST")){
+  //  require 'controllers/register.php';
+  // }
+  // elseif ($uri == 'register'){
+  //   require_once 'views/register.template.php';
+  // }
+  // else {
+  //   echo "<h1>PAGE NOT FOUND
+  //   back to <a href='/index'>Index</a></h1>";
+  // }
   
 
   /*
