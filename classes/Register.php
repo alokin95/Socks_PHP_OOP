@@ -19,7 +19,7 @@
 
     public function registerUser() {
 
-      $sql = "INSERT INTO user VALUES ('','$this->first', '$this->last', '$this->pass', '$this->mail')";
+      $sql = "INSERT INTO user VALUES ('','$this->first', '$this->last', '$this->pass', '$this->mail','2')";
 
       $result = $this->execute($sql);
 
