@@ -6,7 +6,7 @@
   
   $result = $product->getProducts();
 
-  $row = mysqli_fetch_object($result);
+  //$row = mysqli_fetch_object($result);
 
   require view('products', $result);
 

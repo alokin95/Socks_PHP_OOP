@@ -13,6 +13,8 @@
 
     $register->registerUser();
 
-    require_once 'views/register.template.php';
+    //require_once 'views/register.template.php';
+
+    require_once view('register');
 
   }

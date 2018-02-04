@@ -9,10 +9,12 @@
 
     $user = new Login($email, $pass);
 
-    $user->login();
+    $login = $user->login();
 
-    if ($user){
-      var_dump($_SESSION);
+    if ($login) {
+      
+      require view('account', $login);
+
     }
 
   }

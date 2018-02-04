@@ -17,7 +17,7 @@ class Route {
         $this->routes['POST'][$uri] = $controller;
 
     }
-    public function direct($uri, $request){
+    public function require($uri, $request){
 
         if (array_key_exists($uri, $this->routes[$request])) {
 
