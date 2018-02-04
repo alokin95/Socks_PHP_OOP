@@ -1,4 +1,5 @@
 <?php 
+session_start();
   //ROUTE KLASA KOJA IMA DEFINE METODU U KOJU UBACUJES RUTE I ONDA IH DEFINISE GORE U OBJEKTU: $this->routes = $routes
   //Pravim novi ROUTE objekat $router, pozivam define klasu i smestam sve te rute
   //$router->direct(uri, method_type);
@@ -29,12 +30,15 @@
 }
 
 $router = new Router;
+
 $router->get('','controllers/home.php');
 $router->get('index','controllers/home.php');
 $router->get('products','controllers/products.php');
 $router->get('details','controllers/details.php');
 $router->get('register','views/register.template.php');
 $router->post('register','controllers/register.php');
+$router->get('login','views/login.template.php');
+$router->post('login','controllers/login.php');
 
 $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');
 $method = $_SERVER['REQUEST_METHOD'];
