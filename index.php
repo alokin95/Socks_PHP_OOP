@@ -1,5 +1,6 @@
 <?php 
-session_start();
+  session_start();
+  
   require_once 'core/bootstrap.php';
   
   require_once 'partials/header.php';
@@ -41,7 +42,7 @@ $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');
 $method = $_SERVER['REQUEST_METHOD'];
 
 
-require $router->direct($uri, $method);
+require $router->require($uri, $method);
 
 
   // $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');  
