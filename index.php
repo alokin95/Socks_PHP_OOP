@@ -1,33 +1,30 @@
 <?php 
 session_start();
-  //ROUTE KLASA KOJA IMA DEFINE METODU U KOJU UBACUJES RUTE I ONDA IH DEFINISE GORE U OBJEKTU: $this->routes = $routes
-  //Pravim novi ROUTE objekat $router, pozivam define klasu i smestam sve te rute
-  //$router->direct(uri, method_type);
   require_once 'core/bootstrap.php';
   
   require_once 'partials/header.php';
 
-  class Router{
+//   class Router{
 
-    private $routes = [
-        'GET' => [],
-        'POST' => []
-    ];
-    public function get($uri, $controller) {
-        $this->routes['GET'][$uri] = $controller;
-    }
-    public function post($uri, $controller)  {
-        $this->routes['POST'][$uri] = $controller;
-    }
-    public function direct($uri, $request){
-        if (array_key_exists($uri, $this->routes[$request])) {
-            return $this->routes[$request][$uri];
-        }
-        else {
-          return $this->routes['GET'][''];
-        }
-    }
-}
+//     private $routes = [
+//         'GET' => [],
+//         'POST' => []
+//     ];
+//     public function get($uri, $controller) {
+//         $this->routes['GET'][$uri] = $controller;
+//     }
+//     public function post($uri, $controller)  {
+//         $this->routes['POST'][$uri] = $controller;
+//     }
+//     public function direct($uri, $request){
+//         if (array_key_exists($uri, $this->routes[$request])) {
+//             return $this->routes[$request][$uri];
+//         }
+//         else {
+//           return $this->routes['GET'][''];
+//         }
+//     }
+// }
 
 $router = new Router;
 
