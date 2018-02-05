@@ -27,6 +27,7 @@
         $_SESSION['role'] = $user->roleid;
         
         return $result;
+        
       }
       else {
         echo "GRESKA";

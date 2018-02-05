@@ -27,6 +27,11 @@
         </ul>
       </nav>
       <div class='cart'>
+      <?php if (isset($_SESSION['email'])):?>
+
+        <a href='logout.php'>Logout</a>
+
+      <?php endif; ?>
         cart
       </div>
     </header>

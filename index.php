@@ -37,11 +37,13 @@ $router->get('register','views/register.template.php');
 $router->post('register','controllers/register.php');
 $router->get('login','views/login.template.php');
 $router->post('login','controllers/login.php');
+$router->get('logout', 'controllers/home.php');
+$router->get('test','views/account.template.php');
 
 $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');
 $method = $_SERVER['REQUEST_METHOD'];
 
-
+var_dump($_SESSION);
 require $router->require($uri, $method);
 
 
