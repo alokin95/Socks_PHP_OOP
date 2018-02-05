@@ -3,7 +3,7 @@
  require_once 'classes/Details.php';
 
 
-$detailsPage = new Details($conn);
+$detailsPage = new Details();
 
 $result = $detailsPage->getInfo();
 
