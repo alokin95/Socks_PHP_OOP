@@ -1,4 +1,5 @@
 <?php
+  
   require_once 'classes/User.php';
   // require_once 'classes/Login.php';
 
@@ -17,24 +18,21 @@
 
   //   }
 
-  // 
+  // }
   
-  require_once 'classes/Login.php';
-
   if (isset($_POST['register'])) {
 
     $email = $_POST['email'];
     $pass = md5($_POST['password']);
 
-    $user = new User();
+    $user = new User;
 
-    $login = $user->login($pass, $email);
+    $result = $user->login($pass, $email);
 
-    if ($login) {
+    if ($result) {
       
-      require view('account', $login);
+      require view('account', $result);
 
     }
-  }
 
-  
+  }
