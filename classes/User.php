@@ -2,26 +2,16 @@
 
   class User extends Connection{
 
-    private $first;
-    private $last;
-    private $pass;
-    private $mail;
 
-    // public function __construct($first, $last, $pass, $mail) {
+    public function __construct() {
 
-    //   $this->first = $first;
-    //   $this->last = $last;
-    //   $this->pass = $pass;
-    //   $this->email = $email;
+      parent::__construct();
 
-    // }
+    }
 
      public function login($pass, $email){
 
-      $this->email = $email;
-      $this->pass = $pass;
-
-      $sql = "SELECT * FROM user WHERE email = '$this->email' AND password = '$this->pass'";
+      $sql = "SELECT * FROM user WHERE email = '$email' AND password = '$pass'";
 
       $result = $this->execute($sql);
 
@@ -43,12 +33,17 @@
 
      public function register($first, $last, $pass, $email) {
 
-      $this->first = $first;
-      $this->pass = $pass;
-      $this->last = $last;
-      $this->email = $email;
+      $sql = "INSERT INTO user VALUES ('','$first', '$last', '$pass', '$email','2')";
 
-      $sql = "INSERT INTO user VALUES ('','$this->first', '$this->last', '$this->pass', '$this->mail','2')";
+      $result = $this->execute($sql);
+
+      return $result;
+
+    }
+
+    public function showCart($session) {
+
+      $sql = "SELECT * FROM user INNER JOIN cart ON user.userid = cart.userid INNER JOIN cart_items ON cart.cartid = cart_items.cartid INNER JOIN product ON cart_items.productid = product.productid INNER JOIN image ON image.imageid = product.imageid WHERE user.email ='".$session."'";
 
       $result = $this->execute($sql);
 
