@@ -1,6 +1,7 @@
 <?php
 
-  require_once 'classes/Register.php';
+  require_once 'classes/User.php';
+  // require_once 'classes/Register.php';
   
   if (isset($_POST['register'])){
     
@@ -9,9 +10,9 @@
     $password = md5($_POST['password']);
     $mail = $_POST['email'];
    
-    $register = new Register($first, $last, $password, $mail);
+    $register = new User();
 
-    $register->registerUser();
+    $register->register($first, $last, $password, $mail);
 
     //require_once 'views/register.template.php';
 
