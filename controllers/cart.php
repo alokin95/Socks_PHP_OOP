@@ -8,10 +8,10 @@
 
   // require_once view('account', $result);
 
-  require_once 'classes/User.php';
+  require_once 'classes/Cart.php';
 
-  $user = new User;
+  $cart = new Cart;
 
-  $result = $user->showCart($_SESSION['email']);
+  $result = $cart->show($_SESSION['email']);
 
   require_once view('account', $result);
