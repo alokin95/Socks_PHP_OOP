@@ -27,6 +27,8 @@
     <form method='POST' action='/account'>
       <?= "<h1>$".$result->productprice."</h1>";?>
       <input type="number" min='1' value='1' name='quantity'><br/>
+      <input type='hidden' name='price' value='<?=$result->productprice?>' readonly>
+      <input type='hidden' name='productid' value='<?=$result->id?>' readonly>
       <button name='add'><h1>Add to cart</h1></button>
     </form>
   </div>
