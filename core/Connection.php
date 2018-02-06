@@ -10,6 +10,12 @@
     
     }
 
+    public function getConnection() {
+
+      return $this->conn;
+
+    }
+
     public function execute($query) {
 
       $result = mysqli_query($this->conn, $query);
