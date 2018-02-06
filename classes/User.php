@@ -2,10 +2,10 @@
 
   class User extends Connection{
 
-    private $first;
-    private $last;
-    private $pass;
-    private $email;
+    // private $first;
+    // private $last;
+    // private $pass;
+    // private $email;
     // private $session;
 
     public function __construct() {
@@ -16,10 +16,10 @@
 
      public function login($pass, $email){
 
-      $this->email = $email;
-      $this->pass = $pass;
+      // $this->email = $email;
+      // $this->pass = $pass;
 
-      $sql = "SELECT * FROM user WHERE email = '$this->email' AND password = '$this->pass'";
+      $sql = "SELECT * FROM user INNER JOIN cart ON user.userid=cart.userid WHERE email = '$email' AND password = '$pass'";
 
       $result = $this->execute($sql);
 
@@ -29,6 +29,7 @@
 
         $_SESSION['email'] = $user->email;
         $_SESSION['role'] = $user->roleid;
+        $_SESSION['cart'] = $user->cartid;
         
         return $result;
         
@@ -41,12 +42,12 @@
 
      public function register($first, $last, $pass, $email) {
 
-      $this->first = $first;
-      $this->last = $last;
-      $this->pass = $pass;
-      $this->email = $email;
+      // $this->first = $first;
+      // $this->last = $last;
+      // $this->pass = $pass;
+      // $this->email = $email;
 
-      $check_existing = "SELECT * FROM user WHERE email ='$this->email'";
+      $check_existing = "SELECT * FROM user WHERE email ='$email'";
 
       $checked = $this->execute($check_existing);
 
@@ -55,8 +56,8 @@
       }
       else {
 
-        $register = "INSERT INTO user VALUES ('','$this->first', '$this->last', '$this->pass', '$this->email','2')";
-        // $sql = "INSERT INTO user VALUES ('','$first','$last','$pass','$email','2')";
+        // $register = "INSERT INTO user VALUES ('','$this->first', '$this->last', '$this->pass', '$this->email','2')";
+        $register = "INSERT INTO user VALUES ('','$first','$last','$pass','$email','2')";
 
         $registered = $this->execute($register);
 
