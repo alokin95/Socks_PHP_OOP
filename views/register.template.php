@@ -21,13 +21,10 @@
 <script>
 
 // $(document).ready(function(){
-//   //console.log('radi');
 //   $('#insert').submit(function(e){
 //     e.preventDefault();
-//    // console.log("Nije redirektovan");
 //    var first = $('#firstName').val();
 //    var last = $('#lastName').val();
-//    //console.log(name);
 //     $.ajax({
 //       type:"POST",
 //       url:"views/test.php",
