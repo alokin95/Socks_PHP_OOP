@@ -24,8 +24,10 @@
     <?= "<h1>" .$result->productname."</h1>";?>
 
     <hr>
-
-    <?= "<h1>$".$result->productprice."</h1>";?>
-    <h1>ADD TO CART</h1>
+    <form method='POST' action='/account'>
+      <?= "<h1>$".$result->productprice."</h1>";?>
+      <input type="number" min='1' value='1' name='quantity'><br/>
+      <button name='add'><h1>Add to cart</h1></button>
+    </form>
   </div>
 </div>
