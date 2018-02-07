@@ -40,15 +40,18 @@
       // }
 
       ?>
-    <?php  while ($row = mysqli_fetch_object($result)) { ?>
+    <?php  while ($row = mysqli_fetch_object($result)) : ?>
 
       <div class='product'>
         <a href='details?productid=<?=$row->productid?>'>
           <img src='/<?=$row->src?>' alt='<?=$row->alt?>'>
+          <div class='product-name'>
+            <?=$row->name ?>
+          </div>
         </a>
+        <p>$<?=$row->price?></p>
       </div>
-
-      <?php } ?>
+      <?php endwhile; ?>
     
   
   </div>
