@@ -39,8 +39,8 @@ $router->get('login','views/login.template.php');
 $router->post('login','controllers/login.php');
 $router->get('logout', 'controllers/home.php');
 $router->get('account','controllers/cart_show.php');
-// $router->post('account','controllers/cart.php');
 $router->post('account', 'controllers/cart_insert.php');
+
 
 $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');
 $method = $_SERVER['REQUEST_METHOD'];
