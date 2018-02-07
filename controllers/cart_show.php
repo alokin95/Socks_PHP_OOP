@@ -15,5 +15,5 @@
   $cart_session = $_SESSION['cart'];
 
   $result = $cart->show($cart_session);
-
+  
   require_once view('account', $result);

@@ -20,7 +20,7 @@
 
   // }
   
-  if (isset($_POST['register'])) {
+  if (isset($_POST['login'])) {
 
     $email = $_POST['email'];
     $pass = md5($_POST['password']);
