@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel='stylesheet' type='text/css' href='/assets/css/main.css'>
     <title>TITLE</title>
   </head>
