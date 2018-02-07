@@ -1,3 +1,25 @@
+// AJAX FOR DELETING ITEMS FROM CART
+$(document).ready(function(){
+  
+  $('#items').on('click','.delete', function(){
+    var productid = this.value;
+    console.log(productid);
+    if (confirm("Do you want to remove this item from your cart?")){
+    $.ajax({
+      type: "POST",
+      url: 'views/test.php',
+      data: {
+        productid : productid
+      },
+      success: function(response){
+         $("#items").html(response);
+      }
+    })
+  }
+  })
+})
+//AJAX CART END
+
 //CHANGE BENETIFS ON CLICK
 showBenefits(1);
 
