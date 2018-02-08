@@ -6,42 +6,32 @@
 
 //$products = mysqli_query($conn, $get_products);
 ?>
+<div class='shop-cover'>
 
+</div>
 <section class='products-content flex-row'>
   <div class='filter'>
-  <form id='form' method='post' action="<?php echo $_SERVER['php_self']?>">
-    <input type='radio' name='filter' id='unisex' value='djoka'>Unisex
-    <br/>
-    <input type='radio' name='filter' id='female' value='pizda'>Female
-  </form>
+    <h5>Filter <br/> options</h5>
+    <hr>
+    <p>Gender</p>
+  <form action="#">
+  <p>
+    <input type="radio" id="unisex" value='1' name="radio-filter">
+    <label for="unisex">Unisex</label>
+  </p>
+  <p>
+    <input type="radio" value='2' id="female" name="radio-filter"  checked>
+    <label for="female" >Female</label>
+  </p>
+  <p>
+    <input type="radio" value='3' id="male" name="radio-filter">
+    <label for="male">Male</label>
+  </p>
+</form>
   </div>
   <div class='products'>
-    <?php
-      
-      // while ($product = mysqli_fetch_array($products)){
-      //   echo 
-      //   "<div class='product'>
-      //     <a href='details?productid=".$product['productid']."'>
-      //       <img src='/".$product['src']."' alt='".$product['alt']."'>
-      //     </a>
-      //   </div>";
-      // }
-
-      //var_dump($row)
-
-      // while ($row = mysqli_fetch_object($result)) {
-      //   echo "
-      //     <div class='product'>
-      //       <a href='details?productid=".$row->productid."'>
-      //         <img src='/".$row->src."' alt='".$row->alt."'>
-      //       </a>
-      //     </div>
-      //   ";
-      // }
-
-      ?>
     <?php  while ($row = mysqli_fetch_object($result)) : ?>
-
+    
       <div class='product'>
         <a href='details?productid=<?=$row->productid?>'>
           <img src='/<?=$row->src?>' alt='<?=$row->alt?>'>
@@ -56,26 +46,3 @@
   
   </div>
 </section>
-<!--
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-<script>
-
-$(document).ready(function(){
-  $('[name=filter]').on('click', function(){
-    var cat = $(this).val();
-    $.ajax({
-      type:"POST",
-      url:"test.php",
-      data:{
-        cat: cat
-      },
-      success: function(response){
-        console.log(response);
-      }
-    })
-  })
-})
-
-
-</script>-->
