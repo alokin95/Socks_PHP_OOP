@@ -4,7 +4,7 @@
         <p>
             Grab a pair of our socks to help you keep going step<br/> after step! Every pair of toesocks provides blister<br/> protection, total foot utilization and moisture<br/> management.
         </p>
-        <a href='index.php?page=2''index.php?page=2''index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
+        <a href='#'><button class='shop-now-btn'>Shop now</button></a>
       </div>
     </section>
     <section class='arrivals'>
