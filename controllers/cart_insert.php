@@ -8,6 +8,9 @@
 
   $cart->insert($cart_session, $_POST['productid'], $_POST['quantity']);
 
-  // $result = $cart->show($cart_session);
+  
+  $cart_session = $_SESSION['cart'];
 
-  // require_once view('account', $result);
+  $result = $cart->show($cart_session);
+  
+  require_once view('account', $result);
