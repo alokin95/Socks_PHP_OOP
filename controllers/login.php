@@ -31,7 +31,7 @@
 
     if ($result) {
       
-      require view('account', $result);
+      require view('home');
 
     }
 
