@@ -14,13 +14,16 @@
        $<?=$row->price?>
      </div>
      <div class='item-right'>
-     <button class='delete' value='<?=$row->productid?>'>Remove</button>
+     <button class='delete' value='<?=$row->id?>'>Remove</button>
      </div>
    </div>
     
   
   <?php endwhile; ?>
 </section>
+<div class='checkout'>
+
+</div>
 
  
 
