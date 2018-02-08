@@ -3,11 +3,10 @@ $(document).ready(function(){
   
   $('#items').on('click','.delete', function(){
     var productid = this.value;
-    console.log(productid);
     if (confirm("Do you want to remove this item from your cart?")){
     $.ajax({
       type: "POST",
-      url: 'views/test.php',
+      url: 'views/testCart.php',
       data: {
         productid : productid
       },
@@ -19,6 +18,33 @@ $(document).ready(function(){
   })
 })
 //AJAX CART END
+
+//AJAX FOR GENDER FILTER 
+$('[name=radio-filter]').on('click', function(){
+  var gender = $(this).val();
+  $.ajax({
+    type:"POST",
+    url:"views/testCat.php",
+    data:{
+      gender: gender
+    },
+    success: function(response){
+      var products = JSON.parse(response);
+      $(".products").empty();
+      var text = "";
+      if (products.length<1){
+        text = `<h1>No products found for selected gender</h1>`;
+        $(".products").append(text);
+      }
+      $.each(products, function(key, value){
+        
+       text = `<div class='product'><a href='details?productid=${products[key]['productid']}'><img src='/${products[key]['src']}' alt='${products[key]['alt']}'><div class='product-name'>${products[key]['name']}</div></a><p>$${products[key]['price']}</p></div>`;
+       $(".products").append(text);
+      })
+    }
+  })
+})
+// END
 
 //CHANGE BENETIFS ON CLICK
 showBenefits(1);
