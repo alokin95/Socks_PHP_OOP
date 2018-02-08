@@ -29,7 +29,7 @@
 
       // $this->session = $session;
 
-      $insert_cart = "INSERT INTO cart_items VALUES ('$session', '$productid', '$quantity')";
+      $insert_cart = "INSERT INTO cart_items VALUES ('','$session', '$productid', '$quantity')";
 
       $inserted = $this->execute($insert_cart);
 
