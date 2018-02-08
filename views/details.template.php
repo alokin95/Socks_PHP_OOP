@@ -13,10 +13,6 @@
 
     <?= "<img src='/".$result->src."' alt='".$result->alt."'>";?>
 
-    <div class='product-description'>
-      <?= "<p>".$result->productdescription."</p>";?>
-    </div>
-
   </div>
   
   <div class='product-right'>
@@ -33,3 +29,8 @@
     </form>
   </div>
 </div>
+
+<div class='product-description'>
+      <h1>Product description</h1>
+      <?= "<p>".$result->productdescription."</p>";?>
+    </div>
