@@ -30,6 +30,7 @@
         $_SESSION['email'] = $user->email;
         $_SESSION['role'] = $user->roleid;
         $_SESSION['cart'] = $user->cartid;
+        $_SESSION['userid'] = $user->userid;
         
         return $result;
         
