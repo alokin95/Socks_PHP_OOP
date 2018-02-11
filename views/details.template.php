@@ -5,32 +5,40 @@
   //$product = mysqli_query($conn, $get_product_by_id);
 
   //$product_row = mysqli_fetch_array($product);
-
   ?>
 
+ 
 <div class='flex-row product-details'>
   <div class='product-image'>
 
-    <?= "<img src='/".$result->src."' alt='".$result->alt."'>";?>
+    <?= "<img src='/".$product->src."' alt='".$product->alt."'>";?>
 
   </div>
   
   <div class='product-right'>
 
-    <?= "<h1>" .$result->productname."</h1>";?>
+    <?= "<h1>" .$product->productname."</h1>";?>
 
     <hr>
     <form method='POST' action='/account'>
-      <?= "<h1>$".$result->productprice."</h1>";?>
+      <?= "<h1>$".$product->productprice."</h1>";?>
       <input type="number" min='1' value='1' name='quantity'><br/>
-      <input type='hidden' name='price' value='<?=$result->productprice?>' readonly>
-      <input type='hidden' name='productid' value='<?=$result->id?>' readonly>
+      <input type='hidden' name='price' value='<?=$product->productprice?>' readonly>
+      <input type='hidden' name='productid' value='<?=$product->id?>' readonly>
       <button name='add'><h1>Add to cart</h1></button>
     </form>
   </div>
 </div>
 
+
+
 <div class='product-description'>
       <h1>Product description</h1>
-      <?= "<p>".$result->productdescription."</p>";?>
+      <?= "<p>".$product->productdescription."</p>";?>
     </div>
+  <form action='/products' method="POST">
+    <input type='text' name='heading'/>
+    <textarea rows="4" cols="50" name='content'></textarea>
+    <button type='submit' name='review'>Send</button>
+  </form>
+  <?=$comment->heading?>

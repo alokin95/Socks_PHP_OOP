@@ -1,13 +1,23 @@
 <?php
 
- require_once 'classes/Details.php';
+  require_once 'classes/Product.php';
+  require_once 'classes/Comment.php';
 
 
-$detailsPage = new Details();
+  $detailsPage = new Product();
 
-$result = $detailsPage->getInfo();
+  
+  $productid = $_GET['productid'] ?? 1;
 
-require_once view('details', $result);
+  $comm = new Comment();
+
+  $details['comment'] = $comm->showComment($productid);
+
+
+  $details['product'] = $detailsPage->getInfo();
+
+  $result = extract($details);
+  require_once view('details', $result);
 
 //require_once 'views/details.template.php';
 
