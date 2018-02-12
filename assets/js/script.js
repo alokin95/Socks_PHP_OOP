@@ -19,6 +19,17 @@ $(document).ready(function(){
 })
 //AJAX CART END
 
+//AJAX FOR CART INSERT
+
+$("#add").submit(function(event){
+  event.preventDefault();
+  var id = $('#productid').val();
+  
+})
+
+//END
+
+
 //AJAX FOR GENDER FILTER 
 $('[name=radio-filter]').on('click', function(){
   var gender = $(this).val();
@@ -56,10 +67,10 @@ function showBenefits(n){
   for (let i = 0; i < benefits.length; i++){
 
     benefits[i].style.display = 'none';
-    //benefits[i].style.opacity = 1;
+    
   }
   benefits[n-1].style.display = 'block';
-  //benefits[n-1].style.opacity = 1;
+  
 }
 //END
 
