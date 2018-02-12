@@ -11,13 +11,17 @@
 
   $comm = new Comment();
 
-  $details['comment'] = $comm->showComment($productid);
+  $details['comment'] = $comm->showComment();
 
 
   $details['product'] = $detailsPage->getInfo();
 
-  $result = extract($details);
+ // if ($details['comment']){
+    $result = extract($details);
+  //}
+  
   require_once view('details', $result);
+  
 
 //require_once 'views/details.template.php';
 
