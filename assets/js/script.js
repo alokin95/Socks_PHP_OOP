@@ -21,11 +21,11 @@ $(document).ready(function(){
 
 //AJAX FOR CART INSERT
 
-$("#add").submit(function(event){
-  event.preventDefault();
-  var id = $('#productid').val();
+// $("#add").submit(function(event){
+//   event.preventDefault();
+//   var id = $('#productid').val();
   
-})
+// })
 
 //END
 
@@ -35,11 +35,12 @@ $('[name=radio-filter]').on('click', function(){
   var gender = $(this).val();
   $.ajax({
     type:"POST",
-    url:"views/testCat.php",
+    url:"ajax/gender.php",
     data:{
       gender: gender
     },
     success: function(response){
+      
       var products = JSON.parse(response);
       $(".products").empty();
       var text = "";
