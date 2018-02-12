@@ -16,6 +16,8 @@
   $router->get('logout', 'controllers/home.php');
   $router->get('account','controllers/cart_show.php');
 
+  $router->get('admin','admin/admin_show.php');
+
   $router->post('products', 'controllers/comment_add.php');
   $router->post('account', 'controllers/cart_insert.php');
   $router->post('register','controllers/register.php');
