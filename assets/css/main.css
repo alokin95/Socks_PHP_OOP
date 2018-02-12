@@ -543,27 +543,65 @@ main {
 
 .product-details {
   color: #333;
+  min-height: 550px;
 }
 
 .product-image {
-  position: relative;
-  top: 100px;
+  /* position: relative;
+  top: 50px; */
   flex: 1;
-  padding: 5%;
   text-align: center;
+  height: 415px;
 }
 
 .product-image img {
+  margin-top: 70px;
   max-width: 100%;
   height: auto;
 }
 
+.product-right {
+  margin-top: 40px;
+  /* position: relative;
+  top: 10px; */
+  flex: 1;
+  min-height: 415px;
+  text-align: center;
+  font-size: 21px;
+}
+
+.product-right h1 {
+  width: 230px;
+  margin: 0 auto;
+}
+
+.product-right button {
+  border: none;
+  color: white;
+  text-decoration: none;
+  width: 40%;
+  margin-top: 10px;
+  height: 80px;
+  font-size:34px;
+  background-color: #e31e26;
+  cursor: pointer;
+}
+
+.product-right button:hover {
+  opacity: 0.8;
+}
+
+.more {
+  background-color: #F6F7F8;
+  color: #333;
+  justify-content: space-around;
+}
+
 .product-description {
-  width: 50%;
-  height: 200px;
+  flex: 1;
   text-align: left;
   /* margin: 0 auto; */
-  margin-left: 150px;
+  padding-top: 100px;
   line-height: 2em;
   color: #333;
 }
@@ -572,33 +610,75 @@ main {
   margin: 20px 0px 30px 0;
 }
 
-.product-right {
-  padding-top: 40px;
-  position: relative;
-  right:20px;
-  top: 60px;
+.more input{
+  border: 1px solid #c7c7c7;
+  height: 50px;
+  width: 50%;
+  color: #798189;
+  padding: 0 20px;
+  margin: 10px auto;
+}
+
+.more textarea {
+  border: 1px solid #c7c7c7;
+  width: 50%;
+  color: #798189;
+  padding: 0 20px;
+  margin: 10px auto;
+}
+
+.review {
   flex: 1;
-  min-height: 600px;
   text-align: center;
-  font-size: 21px;
+  padding: 20px;
 }
 
-.product-right h1 {
-  margin: 20px 0px;
-}
-
-.product-right button {
+.review button{
   border: none;
   color: white;
   text-decoration: none;
-  width: 30%;
-  margin-top: 50px;
+  width: 20%;
+  margin-top: 10px;
+  height: 40px;
+  font-size:25px;
   background-color: #e31e26;
   cursor: pointer;
 }
 
-.product-right button:hover {
-  opacity: 0.8;
+.comments {
+  flex: 1;
+  padding: 20px;
+}
+
+.more a {
+  font-size: 36px;
+  height: 50px;
+  flex: 1;
+  margin: 100px;
+  text-decoration: none;
+  font-style: italic;
+  color: #337AC0;
+}
+
+.comment {
+  width: 400px;
+  min-height: 200px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #F6E6FF;
+  padding: 20px;
+}
+
+.comment span {
+  color: seagreen;
+}
+
+.comment p:first-of-type {
+  font-style: italic;
+}
+
+.comment p {
+  margin-top: 10px
 }
 
 #items {
@@ -659,9 +739,9 @@ main {
   float: right;
 }
 
-hr {
+.product-right hr {
   width: 50%;
-  margin: 60px auto;
+  margin: 20px auto;
 }
 
 .register {
