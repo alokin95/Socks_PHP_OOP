@@ -12,21 +12,22 @@
 
     }
 
-    public function addComment($heading, $content, $userid){
+    public function addComment($heading, $content, $userid, $productid){
 
-      $insert_comment = "INSERT INTO comment VALUES('', '$heading', '$content', '', '$userid', '$this->productid')";
+      $date = date('Y-m-d H:i:s');
+
+      $insert_comment = "INSERT INTO comment VALUES('', '$heading', '$content', '$date', '$userid', '$productid')";
+
       $this->execute($insert_comment);
 
     }
 
     public function showComment(){
 
-      $sql = "SELECT *FROM comment WHERE productid =".$this->productid;
+      $sql = "SELECT * FROM comment INNER JOIN user ON comment.userid = user.userid WHERE productid =".$this->productid;
       $result = $this->execute($sql);
 
-      $row = mysqli_fetch_object($result);
-
-      return $row;
+      return $result;
 
     }
   }
