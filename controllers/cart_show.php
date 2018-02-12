@@ -1,19 +1,17 @@
 <?php
 
-  // require_once 'classes/Cart.php';
+  if (!isset($_SESSION['cart'])){
 
-  // $cart = new Cart;
-
-  // $result = $cart->showCart($_SESSION['email']);
-
-  // require_once view('account', $result);
-
+    require view('login');
+    
+  }
+  else {
+  
   require_once 'classes/Cart.php';
 
   $cart = new Cart;
 
-  $cart_session = $_SESSION['cart'];
-
-  $result = $cart->show($cart_session);
+  $result = $cart->show();
   
   require_once view('account', $result);
+}

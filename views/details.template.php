@@ -31,7 +31,7 @@
       <input type="number" min='1' value='1' name='quantity'><br/>
       <input type='hidden' name='price' id='price' value='<?=$product->productprice?>' readonly>
       <input type='hidden' name='productid' id='productid' value='<?=$product->id?>' readonly>
-      <button name='add'>Add to cart</button>
+      <button name='add' <?php if (!isset($_SESSION['userid'])){ echo "disabled";}?>>Add to cart</button>
     </form>
   </div>
 </div>
