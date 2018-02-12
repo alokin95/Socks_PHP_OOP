@@ -11,7 +11,7 @@
 
   function view($template, $data = '1') {
 
-    $result = $data;
+    
     return 'views/'.$template.'.template.php';
     
   }
