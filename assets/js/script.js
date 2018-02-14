@@ -58,6 +58,91 @@ $('[name=radio-filter]').on('click', function(){
 })
 // END
 
+//EDIT CART AJAX//
+$("#update-cart").on("change", function(){
+  var cartid = this.value;
+  $.ajax({
+    url: "ajax/cart_update.php",
+    data: {
+      cartid : cartid
+    },
+    type: "POST",
+    success: function(response){
+     
+      var result = JSON.parse(response);
+      
+      $("#update-userid").val(result[0]['userid']);
+      $("#update-cartid").val(result[0]['cartid']);
+    }
+  })
+})
+
+//END
+
+//EDIT USER AJAX
+$("#update-user").on('change', function(){
+  var userid = this.value;
+  $.ajax({
+    url: 'ajax/user_update.php',
+    type: "POST",
+    data: {
+      userid: userid
+    }, 
+    success: function(response){
+      var result = JSON.parse(response);
+      $("#update-first").val(result[0]['first_name']);
+      $("#update-last").val(result[0]['last_name']);
+      $("#update-email").val(result[0]['email']);
+      $("#update-password").val(result[0]['password']);
+      $("#update-roleid").val(result[0]['roleid']);
+    }
+  })
+  
+})
+
+//END
+
+//EDIT PRODUCT AJAX 
+$("#update-product").on('change', function(){
+  var productid = this.value;
+  $.ajax({
+    url: "ajax/product_update.php",
+    method: "POST",
+    data: {
+      productid: productid
+    },
+    success: function(response){
+      var result = JSON.parse(response);
+      $("#update-name").val(result[0]['name']);
+      $("#update-desc").val(result[0]['description']);
+      $("#update-price").val(result[0]['price']);
+      $("#update-cat").val(result[0]['categoryid']);
+      $("#update-gender").val(result[0]['genderid']);
+      $("#update-image").val(result[0]['imageid']);
+    }
+  })
+})
+
+//END
+
+//EDIT IMAGE AJAX
+$("#update-images").on('change', function(){
+  var imageid = this.value;
+  $.ajax({
+    url: "ajax/image_update.php",
+    type: "POST",
+    data : {
+      imageid: imageid
+    },
+    success: function(response){
+      var result = JSON.parse(response);
+      $("#update-src").val(result[0]['src']);
+      $("#update-alt").val(result[0]['alt']);
+    }
+  })
+})
+//EDIT
+
 //CHANGE BENETIFS ON CLICK
 showBenefits(1);
 
