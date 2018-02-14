@@ -11,7 +11,29 @@ $(document).ready(function(){
         productid : productid
       },
       success: function(response){
-         $("#items").html(response);
+         //
+         var result = JSON.parse(response);
+         var output= "";
+         if (result.length>0){
+           $.each(result, function(key, value){
+            output+=`<div class='item flex-row'>
+              <div class='item-left'>
+                <img src='${value['src']}' alt='${value['alt']}'>
+              </div> 
+              <div class='item-mid'>${value['name']}<br/>
+                $${value['price']}
+              </div>
+              <div class='item-right'>
+              <button class='delete'      value='${value['id']}'>Remove</button>
+              </div>
+            </div>`;
+            $("#items").html(output);
+           })
+         }else {
+           output = "You have no items in your cart";
+           $("#items").html(output);
+         }
+         
       }
     })
   }
