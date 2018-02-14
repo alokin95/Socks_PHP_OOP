@@ -16,7 +16,11 @@
   $router->get('logout', 'controllers/home.php');
   $router->get('account','controllers/cart_show.php');
 
-  $router->get('admin','admin/admin_show.php');
+  $router->get('panel', 'admin/admin_index.php');
+  $router->post('cart', 'admin/admin_cart.php');
+  $router->post('user', 'admin/admin_user.php');
+  $router->post('product', 'admin/admin_product.php');
+  $router->post('image', 'admin/admin_image.php');
 
   $router->post('products', 'controllers/comment_add.php');
   $router->post('account', 'controllers/cart_insert.php');
