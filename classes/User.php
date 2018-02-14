@@ -14,6 +14,61 @@
 
     }
 
+    public function getAll(){
+
+      $sql = "SELECT * FROM user";
+
+      return $this->execute($sql);
+
+    }
+
+    public function update(){
+
+      $id = $_POST['userid'];
+      $first = $_POST['update-first'];
+      $last = $_POST['update-last'];
+      $email = $_POST['update-email'];
+      $pass = md5($_POST['update-password']);
+      $role = $_POST['update-roleid'];
+
+      $sql = "UPDATE user SET first_name='$first', last_name='$last', email='$email', password='$pass',roleid='$role' WHERE userid='$id'";
+
+      $this->execute($sql);
+
+    }
+
+    public function insert() {
+
+      $first = $_POST['firstname'];
+      $last = $_POST['lastname'];
+      $email = $_POST['email'];
+      $pass = md5($_POST['password']);
+      $role = $_POST['roleid'];
+
+      $sql = "INSERT INTO user VALUES ('','$first','$last','$email','$pass','$role')";
+
+      $this->execute($sql);
+
+    }
+
+    public function getUser($id) {
+
+      $sql = "SELECT * FROM user WHERE userid=".$id;
+
+      return $this->execute($sql);
+
+    }
+
+    public function delete(){
+
+      $delete = implode(', ', $_POST['for-delete-user']);
+
+      $sql = "DELETE FROM user WHERE userid in ($delete)";
+
+      $this->execute($sql);
+
+    }
+
      public function login($pass, $email){
 
       $this->email = $email;

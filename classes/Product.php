@@ -13,6 +13,20 @@
 
     }
 
+    public function single($id) {
+      
+      $sql = "SELECT * FROM product WHERE productid=".$id;
+
+      return $this->execute($sql);
+    }
+
+    public function getAll(){
+
+      $sql = "SELECT * FROM product";
+
+      return $this->execute($sql);
+    }
+
     public function getProducts() {
 
       $sql = "SELECT * FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE p.categoryid = ".$this->categoryid;
@@ -44,6 +58,47 @@
       $r = mysqli_fetch_object($result);
 
       return $r;
+
+    }
+
+    public function insert(){
+
+      $name = $_POST['product'];
+      $desc = $_POST['desc'];
+      $price = $_POST['price'];
+      $cat = $_POST['cat'];
+      $gender = $_POST['gender'];
+      $image = $_POST['image'];
+
+      $sql = "INSERT INTO product VALUES ('','$name', '$desc', '$price', '$cat', '$gender', '$image')";
+
+      $this->execute($sql);
+
+    }
+
+    public function delete() {
+
+      $delete = implode(', ', $_POST['for-delete-product']);
+
+      $sql = "DELETE FROM product WHERE productiD IN ($delete)";
+
+      $this->execute($sql);
+
+    }
+
+    public function update() {
+
+      $id = $_POST['productid'];
+      $name = $_POST['update-name'];
+      $desc = $_POST['update-desc'];
+      $price = $_POST['update-price'];
+      $cat = $_POST['update-cat'];
+      $gender = $_POST['update-gender'];
+      $image = $_POST['update-image'];
+
+      $sql = "UPDATE product SET name='$name', description='$desc', price='$price', categoryid='$cat', genderid='$gender', imageid='$image' WHERE productid='$id'";
+
+      $this->execute($sql);
 
     }
 

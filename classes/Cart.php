@@ -11,6 +11,42 @@
 
     }
 
+    public function getAll(){
+
+      $sql = "SELECT * FROM cart";
+
+      return $this->execute($sql);
+
+      
+    }
+
+    public function singleCart($id){
+
+      $sql = "SELECT * FROM cart WHERE cartid=".$id;
+
+      return $this->execute($sql);
+    }
+
+    public function delete(){
+      
+      $delete = implode(', ' ,$_POST['for-delete-cart']);
+      
+      $sql = "DELETE FROM cart WHERE cartid in ($delete)";
+
+      $this->execute($sql);
+
+    }
+
+    public function insertCart(){
+
+      $cartid = $_POST['cartid'];
+      $userid = $_POST['userid'];
+
+      $sql = "INSERT INTO cart VALUES('$cartid', '$userid')";
+
+      $this->execute($sql);
+    }
+
     public function show() {
 
       // $this->session = $session;
@@ -33,6 +69,18 @@
       $insert_cart = "INSERT INTO cart_items VALUES ('','$session', '$productid', '$quantity')";
 
       $inserted = $this->execute($insert_cart);
+
+    }
+
+    public function update(){
+
+      $cartid = $_POST['cartid'];
+      $updated_cartid = $_POST['update-cartid'];
+      $userid = $_POST['update-userid'];
+
+      $sql = "UPDATE cart SET cartid='$updated_cartid', userid='$userid' WHERE cartid='$cartid'";
+
+      return $this->execute($sql);
 
     }
   }
