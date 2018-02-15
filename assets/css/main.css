@@ -589,6 +589,16 @@ main {
   margin: 0 auto;
 }
 
+.product-right a{
+  font-size: 28px;
+  height: 50px;
+  flex: 1;
+  margin: 100px;
+  text-decoration: none;
+  font-style: italic;
+  color: #337AC0;
+}
+
 .product-right button {
   border: none;
   color: white;
