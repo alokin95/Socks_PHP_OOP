@@ -12,8 +12,6 @@
 
   $cart->insert($cart_session, $_POST['productid'], $_POST['quantity']);
 
-  
-  $cart_session = $_SESSION['cart'];
 
   $result = $cart->show($cart_session);
   
