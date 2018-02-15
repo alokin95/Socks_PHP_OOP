@@ -14,6 +14,7 @@
         <th>CategoryID</th>
         <th>GenderID</th>
         <th>ImageID</th>
+        <th>Delete</th>
       </tr>
       <?php foreach ($product as $row) :?>
       <tr>
@@ -36,13 +37,16 @@
           <?=$row->imageid?>
         </td>
         <td>
+          <?=$row->genderid?>
+        </td>
+        <td>
           <input type='checkbox' name='for-delete-product[]' value='<?=$row->productid?>'>
         </td>
       </tr>
       <?php endforeach;?>
       <tr>
         <td colspan='8'>
-          <button type='submit' name='user-delete'>Delete</button>
+          <button type='submit' name='product-delete'>Delete</button>
         </td>
       </tr>
     </table>
