@@ -9,6 +9,15 @@
 
     }
 
+    public function getRating($productid){
+
+      $sql = "SELECT ROUND(sum/number_of_votes, 1) as rating FROM rating WHERE productid='$productid'";
+
+      $result = $this->execute($sql);
+
+      return mysqli_fetch_object($result);
+    }
+
      public function checkVoted($userid, $productid) {
 
       $sql = "SELECT * FROM rating_log WHERE userid='$userid' AND productid='$productid'";
@@ -18,8 +27,6 @@
      }
 
     public function vote($userid, $productid, $value) {
-
-      $output;
 
       $check_voted = $this->checkVoted($userid, $productid);
 
@@ -38,7 +45,7 @@
 
           $this->execute($vote_log);
 
-          $output = "Success";
+          $output = $this->getRating($productid);
         }
 
       }

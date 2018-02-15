@@ -15,7 +15,14 @@ $(document).ready(function () {
         value: value
       },
       success: function(response){
-        console.log(response);
+        var data = JSON.parse(response);
+        if (jQuery.type(data)=='string'){
+          $("#denied").html(data);
+        }
+        else {
+          $("#user-rating").html(data['rating']);
+        }
+        
       }
     })
   })
