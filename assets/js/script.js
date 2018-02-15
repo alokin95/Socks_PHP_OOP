@@ -1,22 +1,22 @@
 // AJAX FOR DELETING ITEMS FROM CART
-$(document).ready(function(){
-  
-  $('#items').on('click','.delete', function(){
+$(document).ready(function () {
+
+  $('#items').on('click', '.delete', function () {
     var productid = this.value;
-    if (confirm("Do you want to remove this item from your cart?")){
-    $.ajax({
-      type: "POST",
-      url: 'views/testCart.php',
-      data: {
-        productid : productid
-      },
-      success: function(response){
-         //
-         var result = JSON.parse(response);
-         var output= "";
-         if (result.length>0){
-           $.each(result, function(key, value){
-            output+=`<div class='item flex-row'>
+    if (confirm("Do you want to remove this item from your cart?")) {
+      $.ajax({
+        type: "POST",
+        url: 'views/testCart.php',
+        data: {
+          productid: productid
+        },
+        success: function (response) {
+          //
+          var result = JSON.parse(response);
+          var output = "";
+          if (result.length > 0) {
+            $.each(result, function (key, value) {
+              output += `<div class='item flex-row'>
               <div class='item-left'>
                 <img src='${value['src']}' alt='${value['alt']}'>
               </div> 
@@ -27,16 +27,16 @@ $(document).ready(function(){
               <button class='delete'      value='${value['id']}'>Remove</button>
               </div>
             </div>`;
+              $("#items").html(output);
+            })
+          } else {
+            output = "You have no items in your cart";
             $("#items").html(output);
-           })
-         }else {
-           output = "You have no items in your cart";
-           $("#items").html(output);
-         }
-         
-      }
-    })
-  }
+          }
+
+        }
+      })
+    }
   })
 })
 //AJAX CART END
@@ -46,34 +46,34 @@ $(document).ready(function(){
 // $("#add").submit(function(event){
 //   event.preventDefault();
 //   var id = $('#productid').val();
-  
+
 // })
 
 //END
 
 
 //AJAX FOR GENDER FILTER 
-$('[name=radio-filter]').on('click', function(){
+$('[name=radio-filter]').on('click', function () {
   var gender = $(this).val();
   $.ajax({
-    type:"POST",
-    url:"ajax/gender.php",
-    data:{
+    type: "POST",
+    url: "ajax/gender.php",
+    data: {
       gender: gender
     },
-    success: function(response){
-      
+    success: function (response) {
+
       var products = JSON.parse(response);
       $(".products").empty();
       var text = "";
-      if (products.length<1){
+      if (products.length < 1) {
         text = `<h1>No products found for selected gender</h1>`;
         $(".products").append(text);
       }
-      $.each(products, function(key, value){
-        
-       text = `<div class='product'><a href='details?productid=${products[key]['productid']}'><img src='/${products[key]['src']}' alt='${products[key]['alt']}'><div class='product-name'>${products[key]['name']}</div></a><p>$${products[key]['price']}</p></div>`;
-       $(".products").append(text);
+      $.each(products, function (key, value) {
+
+        text = `<div class='product'><a href='details?productid=${products[key]['productid']}'><img src='/${products[key]['src']}' alt='${products[key]['alt']}'><div class='product-name'>${products[key]['name']}</div></a><p>$${products[key]['price']}</p></div>`;
+        $(".products").append(text);
       })
     }
   })
@@ -81,18 +81,18 @@ $('[name=radio-filter]').on('click', function(){
 // END
 
 //EDIT CART AJAX//
-$("#update-cart").on("change", function(){
+$("#update-cart").on("change", function () {
   var cartid = this.value;
   $.ajax({
     url: "ajax/cart_update.php",
     data: {
-      cartid : cartid
+      cartid: cartid
     },
     type: "POST",
-    success: function(response){
-     
+    success: function (response) {
+
       var result = JSON.parse(response);
-      
+
       $("#update-userid").val(result[0]['userid']);
       $("#update-cartid").val(result[0]['cartid']);
     }
@@ -102,15 +102,15 @@ $("#update-cart").on("change", function(){
 //END
 
 //EDIT USER AJAX
-$("#update-user").on('change', function(){
+$("#update-user").on('change', function () {
   var userid = this.value;
   $.ajax({
     url: 'ajax/user_update.php',
     type: "POST",
     data: {
       userid: userid
-    }, 
-    success: function(response){
+    },
+    success: function (response) {
       var result = JSON.parse(response);
       $("#update-first").val(result[0]['first_name']);
       $("#update-last").val(result[0]['last_name']);
@@ -119,13 +119,13 @@ $("#update-user").on('change', function(){
       $("#update-roleid").val(result[0]['roleid']);
     }
   })
-  
+
 })
 
 //END
 
 //EDIT PRODUCT AJAX 
-$("#update-product").on('change', function(){
+$("#update-product").on('change', function () {
   var productid = this.value;
   $.ajax({
     url: "ajax/product_update.php",
@@ -133,7 +133,7 @@ $("#update-product").on('change', function(){
     data: {
       productid: productid
     },
-    success: function(response){
+    success: function (response) {
       var result = JSON.parse(response);
       $("#update-name").val(result[0]['name']);
       $("#update-desc").val(result[0]['description']);
@@ -148,15 +148,15 @@ $("#update-product").on('change', function(){
 //END
 
 //EDIT IMAGE AJAX
-$("#update-images").on('change', function(){
+$("#update-images").on('change', function () {
   var imageid = this.value;
   $.ajax({
     url: "ajax/image_update.php",
     type: "POST",
-    data : {
+    data: {
       imageid: imageid
     },
-    success: function(response){
+    success: function (response) {
       var result = JSON.parse(response);
       $("#update-src").val(result[0]['src']);
       $("#update-alt").val(result[0]['alt']);
@@ -168,22 +168,23 @@ $("#update-images").on('change', function(){
 //CHANGE BENETIFS ON CLICK
 showBenefits(1);
 
-function showBenefits(n){
+function showBenefits(n) {
 
   let benefits = document.getElementsByClassName('benefit-bg');
 
-  for (let i = 0; i < benefits.length; i++){
+  for (let i = 0; i < benefits.length; i++) {
 
     benefits[i].style.display = 'none';
-    
+
   }
-  benefits[n-1].style.display = 'block';
-  
+  benefits[n - 1].style.display = 'block';
+
 }
 //END
 
 //ADD LISTENERS
 addListeners();
+
 function addListeners() {
   document.getElementById('util').addEventListener('click', function () {
 
@@ -212,16 +213,16 @@ function addListeners() {
     removeUtilAndBlister();
   });
 
-  window.addEventListener('scroll', function(){
+  window.addEventListener('scroll', function () {
     scroll();
   })
 }
 //ADD DARKENED BACKGROUNDS TO BENEFITS BUTTONS
-function addDark(element, className){
+function addDark(element, className) {
 
   let lista = element.classList;
 
-  if (!lista.contains(className)){
+  if (!lista.contains(className)) {
 
     element.classList.add(className);
 
@@ -230,7 +231,7 @@ function addDark(element, className){
 //END
 
 //REMOVING DARK BACKGROUND FROM NON-CLICKED BUTTONS
-function removeManageAndBlister(){
+function removeManageAndBlister() {
 
   let btnBlister = document.getElementById('blister');
   let btnManage = document.getElementById('manage');
@@ -239,7 +240,7 @@ function removeManageAndBlister(){
   btnManage.classList.remove('dark2');
 }
 
-function removeUtilAndBlister(){
+function removeUtilAndBlister() {
 
   let btnUtil = document.getElementById('util');
   let btnBlister = document.getElementById('blister');
@@ -259,7 +260,7 @@ function removeUtilAndManage() {
 
 
 //SLIDE IN / OUT WHEN SCROLLING
-function scrollFirst(posY){
+function scrollFirst(posY) {
 
   if (posY > 850) {
 
@@ -270,7 +271,7 @@ function scrollFirst(posY){
 
 }
 
-function scrollSecond(posY){
+function scrollSecond(posY) {
 
   if (posY > 1300) {
 
@@ -280,7 +281,7 @@ function scrollSecond(posY){
   }
 }
 
-function scrollThird(posY){
+function scrollThird(posY) {
 
   if (posY > 1800) {
 
@@ -291,13 +292,26 @@ function scrollThird(posY){
 }
 
 function scroll() {
- 
+
   let posY = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
 
   scrollFirst(posY);
   scrollSecond(posY);
   scrollThird(posY);
 
- 
 }
 
+showAdminTable(3);
+
+function showAdminTable(n) {
+
+  let tables = document.getElementsByClassName('admin-table');
+
+  for (let i = 0; i < tables.length; i++) {
+
+    tables[i].style.display = 'none';
+
+  }
+  tables[n - 1].style.display = 'block';
+
+}
