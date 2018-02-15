@@ -1,3 +1,5 @@
+showAdminTable(1);
+
 // AJAX FOR DELETING ITEMS FROM CART
 $(document).ready(function () {
 
@@ -301,7 +303,7 @@ function scroll() {
 
 }
 
-showAdminTable(3);
+
 
 function showAdminTable(n) {
 

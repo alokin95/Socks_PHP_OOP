@@ -13,31 +13,3 @@
     <button type="submit" id="register" class='register-btn' name='register'>Register</button>
   </form>
 </section>
-
-
-
-
-<script>
-
-// $(document).ready(function(){
-//   $('#insert').submit(function(e){
-//     e.preventDefault();
-//    var first = $('#firstName').val();
-//    var last = $('#lastName').val();
-//     $.ajax({
-//       type:"POST",
-//       url:"views/test.php",
-//       data:{
-//         first: first,
-//         last: last
-//       },
-//       success: function(response){
-//         alert("Uspesna registracija");
-//       }
-//     });
-//   });
-
-
-})
-
-</script>
