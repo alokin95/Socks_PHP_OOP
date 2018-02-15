@@ -1,8 +1,26 @@
-showAdminTable(1);
+// showAdminTable(1);
 
 // AJAX FOR DELETING ITEMS FROM CART
 $(document).ready(function () {
+  //POCETAK
 
+  $(".vote").on('click', function(){
+    var productid = this.id;
+    var value = this.value;
+    $.ajax({
+      url: "ajax/rating.php",
+      type: "POST",
+      data : {
+        productid: productid,
+        value: value
+      },
+      success: function(response){
+        console.log(response);
+      }
+    })
+  })
+
+  //KRAJ
   $('#items').on('click', '.delete', function () {
     var productid = this.value;
     if (confirm("Do you want to remove this item from your cart?")) {
@@ -26,7 +44,7 @@ $(document).ready(function () {
                 $${value['price']}
               </div>
               <div class='item-right'>
-              <button class='delete'      value='${value['id']}'>Remove</button>
+              <button class='delete' value='${value['id']}'>Remove</button>
               </div>
             </div>`;
               $("#items").html(output);

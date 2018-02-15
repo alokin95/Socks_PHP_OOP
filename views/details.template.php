@@ -27,8 +27,18 @@
     </form>
   </div>
 </div>
-
-
+<div class="rating">
+<button class='vote' id='<?=$product->id?>' value='5'>☆</button>
+<button class='vote' id='<?=$product->id?>'  value='4'>☆</button>
+<button class='vote' id='<?=$product->id?>'  value='3'>☆</button>
+<button class='vote' id='<?=$product->id?>'  value='2'>☆</button>
+<button class='vote' id='<?=$product->id?>'  value='1'>☆</button>
+</div>
+<!-- <button class='vote' id='<?=$product->id?>' value='5'> </button>
+<button class='vote' id='<?=$product->id?>'  value='4'> </button>
+<button class='vote' id='<?=$product->id?>'  value='3'> </button>
+<button class='vote' id='<?=$product->id?>'  value='2'> </button>
+<button class='vote' id='<?=$product->id?>'  value='1'> </button> -->
 <div class="flex-row more">
   <?php if(!isset($_SESSION['userid'])){?>
 
@@ -37,9 +47,9 @@
   <?php } else {?>
     <form action='/products' method="POST" class='review'>
      <label for='heading'>Heading:</label><br/>
-      <input type='text' id='heading' name='heading'/><br/>
+      <input type='text' id='heading' name='heading' required/><br/>
       <label for='content'>Review:</label><br/>
-      <textarea rows="4" cols="50" name='content' id='content'></textarea><br/>
+      <textarea rows="4" cols="50" name='content' id='content' required></textarea><br/>
       <input type='hidden' name='productid' value='<?=$product->id?>' readonly>
       <button type='submit' name='review'>Send</button>
     </form>
