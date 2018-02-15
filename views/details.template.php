@@ -1,14 +1,4 @@
-<?php
-
-  // $get_product_by_id = "SELECT productid AS id, p.name as productname, description as productdescription, price as productprice, p.categoryid as catid, subcategoryid as subcatid, p.imageid as imgid, src, alt FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE productid =" .$_GET['productid'];
-
-  //$product = mysqli_query($conn, $get_product_by_id);
-
-  //$product_row = mysqli_fetch_array($product);
-  ?>
-
- 
-<div class='flex-row product-details'>
+ <div class='flex-row product-details'>
   <div class='product-image'>
 
     <?= "<img src='/".$product->src."' alt='".$product->alt."'>";?>
@@ -28,7 +18,7 @@
     <hr>
     <form method='POST' action='/account' id='add'>
       <?= "<h1>$".$product->productprice."</h1>";?>
-      <input type="number" min='1' value='1' name='quantity'><br/>
+      <input type="number" min='1' max='5' value='1' name='quantity'><br/>
       <input type='hidden' name='price' id='price' value='<?=$product->productprice?>' readonly>
       <input type='hidden' name='productid' id='productid' value='<?=$product->id?>' readonly>
       <button name='add' <?php if (!isset($_SESSION['userid'])){ echo "disabled";}?>>Add to cart</button>

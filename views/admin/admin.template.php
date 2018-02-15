@@ -1,10 +1,16 @@
+<div style="text-align:center">
+    <span onclick="showAdminTable(1)" class='show-table'>User table</span>
+    <span onclick="showAdminTable(2)" class='show-table'>Cart table</span>
+    <span onclick="showAdminTable(3)" class='show-table'>Product table</span>
+    <span onclick="showAdminTable(4)" class='show-table'>Image table</span>
+  </div>
+
 <?php
 
-  echo "<h1>User manipulation</h1>";
-  require_once view('admin/user');
-  echo "<h1>Cart manipulation</h1>";
-  require_once view('admin/cart');
-  echo "<h1>Product manipulation</h1>";
-  require_once view('admin/product');
-  echo "<h1>Image manipulation</h1>";
-  require_once view('admin/image');
+   
+    require_once view('admin/user');
+    require_once view('admin/cart');
+    require_once view('admin/product');
+    require_once view('admin/image');
+
+  
