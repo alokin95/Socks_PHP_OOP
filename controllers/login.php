@@ -29,7 +29,9 @@
 
     if ($result) {
       
-      require view('home');
+      // require view('home');
+
+      Header('Location:/index');
 
     }
 

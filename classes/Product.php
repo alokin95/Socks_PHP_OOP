@@ -80,7 +80,7 @@
 
       $delete = implode(', ', $_POST['for-delete-product']);
 
-      $sql = "DELETE FROM product WHERE productiD IN ($delete)";
+      $sql = "DELETE FROM product WHERE productid IN ($delete)";
 
       $this->execute($sql);
 
