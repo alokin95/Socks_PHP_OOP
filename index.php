@@ -3,7 +3,7 @@
   
   require_once 'core/bootstrap.php';
   
-  require_once 'partials/header.php';
+  require_once 'views/partials/header.php';
 
   $router = new Route;
 
@@ -26,10 +26,11 @@
   $router->post('account', 'controllers/cart_insert.php');
   $router->post('register','controllers/register.php');
   $router->post('index','controllers/login.php');
+  
 
   $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');
   $method = $_SERVER['REQUEST_METHOD'];
 
   require $router->require($uri, $method);
 
-  require_once 'partials/footer.php';
+  require_once 'views/partials/footer.php';
