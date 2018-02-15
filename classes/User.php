@@ -28,7 +28,7 @@
       $first = $_POST['update-first'];
       $last = $_POST['update-last'];
       $email = $_POST['update-email'];
-      $pass = md5($_POST['update-password']);
+      $pass = password_hash($_POST['update-password'], PASSWORD_DEFAULT);
       $role = $_POST['update-roleid'];
 
       $sql = "UPDATE user SET first_name='$first', last_name='$last', email='$email', password='$pass',roleid='$role' WHERE userid='$id'";
@@ -42,12 +42,21 @@
       $first = $_POST['firstname'];
       $last = $_POST['lastname'];
       $email = $_POST['email'];
-      $pass = md5($_POST['password']);
+      $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
       $role = $_POST['roleid'];
 
-      $sql = "INSERT INTO user VALUES ('','$first','$last','$email','$pass','$role')";
+      $sql = "INSERT INTO user VALUES ('','$first','$last','$pass','$email','$role')";
 
-      $this->execute($sql);
+      $inserted = $this->execute($sql);
+
+      $last_id = mysqli_insert_id($this->getConnection());
+
+      if ($inserted) {
+
+        $cart_sql = "INSERT INTO cart VALUES ('','$last_id')";
+        $this->execute($cart_sql);
+
+      }
 
     }
 
@@ -69,18 +78,22 @@
 
     }
 
-     public function login($pass, $email){
+     public function login(){
 
-      $this->email = $email;
-      $this->pass = $pass;
+      $this->email = $_POST['email'];;
+      $this->pass = $_POST['password'];;
 
-      $sql = "SELECT * FROM user INNER JOIN cart ON user.userid=cart.userid WHERE email = '$this->email' AND password = '$this->pass'";
+      $sql = "SELECT * FROM user INNER JOIN cart ON user.userid=cart.userid WHERE email = '$this->email'";
 
       $result = $this->execute($sql);
 
       if (mysqli_num_rows($result) == 1){
 
         $user = mysqli_fetch_object($result);
+
+        $hashed_pass = $user->password;
+
+        if (password_verify($this->pass ,$hashed_pass)){
 
         $_SESSION['email'] = $user->email;
         $_SESSION['role'] = $user->roleid;
@@ -95,19 +108,21 @@
       }
 
      }
+     
+    }
 
-     public function register($first, $last, $pass, $email) {
+     public function register() {
 
-      $this->first = $first;
-      $this->last = $last;
-      $this->pass = $pass;
-      $this->email = $email;
+      $this->first = $_POST['firstName'];
+      $this->last = $_POST['lastName'];
+      $this->pass = password_hash($_POST['password'], PASSWORD_DEFAULT); 
+      $this->email = $_POST['email'];
 
       $check_existing = "SELECT * FROM user WHERE email ='$this->email'";
 
       $checked = $this->execute($check_existing);
 
-      if ($checked){
+      if (mysqli_num_rows($checked)>0){
         echo "Email already in use";
       }
       else {

@@ -22,12 +22,10 @@
   
   if (isset($_POST['login'])) {
 
-    $email = $_POST['email'];
-    $pass = md5($_POST['password']);
 
     $user = new User;
 
-    $result = $user->login($pass, $email);
+    $result = $user->login();
 
     if ($result) {
       
