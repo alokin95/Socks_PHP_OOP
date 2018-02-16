@@ -69,11 +69,13 @@ $("#update-comment").on('change', function(){
 //AJAX FOR RATING 
 $(".vote").on('click', function(){
   var value = this.value;
+  var productid = this.id;
   $.ajax({
     url: "ajax/rating.php",
     type: "POST",
     data : {
-      value: value
+      value: value,
+      productid: productid
     },
     success: function(response){
       var data = JSON.parse(response);
