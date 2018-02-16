@@ -40,7 +40,6 @@
 
       $sql = "SELECT * FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE p.categoryid = ".$this->categoryid;
       $result = $this->execute($sql);
-      //$result = mysqli_query($this->conn, $sql);
 
       return $result;
 
@@ -49,7 +48,7 @@
     public function getProductByGender($gender){
 
 
-      $sql = "SELECT * FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE p.genderid ='$gender' AND p.categoryid='$this->categoryid'";
+      $sql = "SELECT * FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE p.genderid ='$gender'";
 
       $result = $this->execute($sql);
 
@@ -57,8 +56,6 @@
     }
 
     public function getInfo() {
-
-      
 
       $sql = "SELECT productid AS id, p.name as productname, description as productdescription, price as productprice, p.categoryid as catid, genderid as genderid, p.imageid as imgid, src, alt FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE productid =".$this->id;
 
@@ -81,7 +78,18 @@
 
       $sql = "INSERT INTO product VALUES ('','$name', '$desc', '$price', '$cat', '$gender', '$image')";
 
-      $this->execute($sql);
+      $inserted = $this->execute($sql);
+
+      $last_id = mysqli_insert_id($this->getConnection());
+
+      if ($inserted) {
+        
+        $add_rating = "INSERT INTO rating VALUES ('','','','$last_id')";
+
+        $this->execute($add_rating);
+
+      }
+     
 
     }
 
