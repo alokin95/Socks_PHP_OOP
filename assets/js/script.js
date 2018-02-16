@@ -43,15 +43,36 @@ $(document).ready(function () {
 })
 //AJAX CART END
 
+//AJAX FOR COMMENT EDIT
+$("#update-comment").on('change', function(){
+  var id = this.id;
+  var value = this.value;
+  $.ajax({
+    url: 'ajax/comment_update.php',
+    type: 'POST',
+    data: {
+      id:id,
+      value: value
+    },
+    success: function(response){
+      var data = JSON.parse(response);
+      $("#update-heading").val(data[0]['heading']);
+      $("#update-content").val(data[0]['content']);
+      $("#update-date").val(data[0]['date_created']);
+      $("#update-c-userid").val(data[0]['userid']);
+      $("#update-c-productid").val(data[0]['productid']);
+    }
+  })
+})
+//END
+
 //AJAX FOR RATING 
 $(".vote").on('click', function(){
-  var productid = this.id;
   var value = this.value;
   $.ajax({
     url: "ajax/rating.php",
     type: "POST",
     data : {
-      productid: productid,
       value: value
     },
     success: function(response){
@@ -189,7 +210,7 @@ function showBenefits(n) {
   let benefits = document.getElementsByClassName('benefit-bg');
 
   for (let i = 0; i < benefits.length; i++) {
-
+    
     benefits[i].style.display = 'none';
 
   }

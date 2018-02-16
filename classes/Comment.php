@@ -30,4 +30,58 @@
       return $result;
 
     }
+
+    public function getAll(){
+
+      $sql = "SELECT * FROM comment";
+
+      return $this->execute($sql);
+
+    }
+
+    public function delete() {
+
+      $delete = implode(', ', $_POST['for-delete-comment']);
+
+      $sql = "DELETE FROM comment WHERE commentid in ($delete)";
+
+      $this->execute($sql);
+    }
+
+    public function getSingle($id) {
+      
+      $sql = "SELECT * FROM comment WHERE commentid=".$id;
+
+      return $this->execute($sql);
+    }
+
+    public function update() {
+
+      $id = $_POST['commentid'];
+      $head = $_POST['update-heading'];
+      $content = $_POST['update-content'];
+      $date = $_POST['update-date'];
+      $user = $_POST['update-c-userid'];
+      $product = $_POST['update-c-productid'];
+
+      $sql = "UPDATE comment SET heading='$head', content='$content', date_created='$date', userid='$user', productid='$product' WHERE commentid='$id'";
+
+      $this->execute($sql);
+    }
+
+    public function insert(){
+
+      $head = $_POST['heading'];
+      $content = $_POST['content'];
+      $user = $_POST['comment-userid'];
+      $product = $_POST['comment-productid'];
+
+      $date = date('Y-m-d H:i:s');
+
+      $sql = "INSERT INTO comment VALUES('', '$head', '$content', '$date', '$user', '$product')";
+
+      $this->execute($sql);
+
+    }
+
   }

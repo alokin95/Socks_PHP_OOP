@@ -29,6 +29,7 @@
   $router->post('user', 'admin/admin_user.php');
   $router->post('product', 'admin/admin_product.php');
   $router->post('image', 'admin/admin_image.php');
+  $router->post('comment', 'admin/admin_comment.php');
 
 
   $uri = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),'/');

@@ -1,8 +1,14 @@
 <?php 
+
+  if ($_SESSION['role']!=1){
+    header("Location:index");
+  }
+  
   require 'classes/Cart.php';
   require 'classes/User.php';
   require 'classes/Product.php';
   require 'classes/Image.php';
+  require 'classes/Comment.php';
 
   //CART
   $cart = new Cart;
@@ -48,6 +54,19 @@
 
   while ($row = mysqli_fetch_object($result)) {
     $data['image'][] = $row;
+  }
+
+
+  //COMMENT 
+
+  $comment = new Comment;
+
+  $result = $comment->getAll();
+
+  $data['comment'] = [];
+
+  while ($row = mysqli_fetch_object($result)) {
+    $data['comments'][] = $row;
   }
 
   require view('admin/admin', extract($data));
