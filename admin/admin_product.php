@@ -21,5 +21,5 @@
     $product->insert();
   }
 
-  Header("Location:http://localhost:8000/panel");
+  Header("Location:panel");
 
