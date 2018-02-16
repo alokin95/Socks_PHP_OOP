@@ -1,5 +1,6 @@
 
 <section id='items'>
+  <h3> This is your cart! Get back to <a href="products?category=1">shopping!</a></h3>
 <?php
 
   // if (!isset($_SESSION['email'])){
