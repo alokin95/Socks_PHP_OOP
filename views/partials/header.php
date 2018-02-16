@@ -18,7 +18,7 @@
 <body>
   <header class='flex-row'>
     <div class='logo'>
-      logo
+     <a href="index"><img src='assets/img/other/logo.jpg' width="180px" height="100px"></a>
     </div>
     <nav>
       <ul>
