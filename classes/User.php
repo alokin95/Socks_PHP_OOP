@@ -104,7 +104,7 @@
         
       }
       else {
-        echo "GRESKA";
+        Header("location:login");
       }
 
      }
@@ -118,6 +118,39 @@
       $this->pass = password_hash($_POST['password'], PASSWORD_DEFAULT); 
       $this->email = $_POST['email'];
 
+      $regMail = "/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/";
+      $regName="/^[A-Za-z]{4,15}$/";
+
+      $errors = [];
+
+      if(!preg_match($regName ,$this->first ))
+      {
+        $errors[]="First name is in bad format";
+      }
+
+      if(!preg_match($regName ,$this->last ))
+      {
+        $errors[]="Last name is in bad format";
+      }
+
+      if(!preg_match($regMail ,$this->email ))
+      {
+        $errors[]="Email is in bad format";
+      }
+
+      if (empty($this->pass)){
+        $errors[] ="Password is empty";
+      }
+
+      if (count($errors)>0) {
+        // Header:("location:register");
+        foreach ($errors as $e){
+          echo $e;
+        }
+        
+      }
+      else {
+
       $check_existing = "SELECT * FROM user WHERE email ='$this->email'";
 
       $checked = $this->execute($check_existing);
@@ -127,7 +160,6 @@
       }
       else {
 
-        // $register = "INSERT INTO user VALUES ('','$this->first', '$this->last', '$this->pass', '$this->email','2')";
         $register = "INSERT INTO user VALUES ('','$this->first','$this->last','$this->pass','$this->email','2')";
 
         $registered = $this->execute($register);
@@ -143,7 +175,7 @@
 
       }
       
-
+    }
     }
 
     // public function showCart($session) {

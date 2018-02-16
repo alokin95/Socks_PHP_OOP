@@ -1,4 +1,9 @@
-  </main>
-  </body>
-  <script src="/assets/js/script.js"></script>
+<footer>
+
+</footer>
+</main>
+
+</body>
+<script src="/assets/js/script.js"></script>
+
 </html>

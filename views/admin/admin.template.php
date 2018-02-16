@@ -1,9 +1,9 @@
 <div style="text-align:center">
     <span onclick="showAdminTable(1)" class='show-table'>User table</span>
-    <span onclick="showAdminTable(2)" class='show-table'>Cart table</span>
     <span onclick="showAdminTable(3)" class='show-table'>Product table</span>
     <span onclick="showAdminTable(4)" class='show-table'>Image table</span>
     <span onclick="showAdminTable(5)" class='show-table'>Comment table</span>
+    <span onclick="showAdminTable(2)" class='show-table'>Cart table</span>
   </div>
 
 <?php

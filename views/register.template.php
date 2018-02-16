@@ -7,7 +7,7 @@
     <p>Last name: </p>
     <input type='text' name='lastName' id='lastName'/><br/>
     <p>Password: </p>
-    <input type='password' name='password' id='password'/><br/>
+    <input type='password' name='password' id='password' required/><br/>
     <p>E-mail: </p>
     <input type='text' name='email' id='email'/><br/>
     <button type="submit" id="register" class='register-btn' name='register'>Register</button>

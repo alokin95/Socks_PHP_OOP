@@ -20,7 +20,4 @@
     
   
   <?php endwhile; ?>
-  <div class='cart-buttons'>
-    <a href='products?category=1'><button>Continue shopping</button>
-  </div>
 </section>

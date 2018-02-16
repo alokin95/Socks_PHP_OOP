@@ -14,5 +14,6 @@
       Header('Location:/index');
 
     }
+    Header('Location:/login');
 
   }

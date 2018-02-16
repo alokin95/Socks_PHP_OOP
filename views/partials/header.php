@@ -3,11 +3,16 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="icon" href="assets/img/other/favicon.svg" type="image/gif" sizes="16x16">
+  <meta name="description" content="Buy socks. Great socks for sale for men, women and kids.">
+  <meta name="keywords" content="Socks, shop, ecommerce, buy, sell, comment, products, trail, mountain, blister">
+  <meta name="author" content="Nikola Mitrovic">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <link rel='stylesheet' type='text/css' href='/assets/css/main.css'>
-  <title>TITLE</title>
+  <title>Socks Awesome</title>
 </head>
 
 <body>
