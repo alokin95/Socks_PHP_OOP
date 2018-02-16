@@ -16,6 +16,7 @@
   $router->get('account','controllers/cart_show.php');
   $router->get('register','views/register.template.php');
   $router->get('login','views/login.template.php');
+  $router->get('about', 'views/about.template.php');
 
   //POST ROUTES
   $router->post('products', 'controllers/comment_add.php');

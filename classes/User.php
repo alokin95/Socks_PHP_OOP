@@ -145,7 +145,7 @@
       if (count($errors)>0) {
         // Header:("location:register");
         foreach ($errors as $e){
-          echo $e;
+          echo $e."<br/>";
         }
         
       }

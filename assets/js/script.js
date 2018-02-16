@@ -1,3 +1,37 @@
+var regName = /^[A-Za-z]{4,15}$/;
+var regMail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+var first = document.getElementById('firstName');
+var last = document.getElementById('lastName');
+var pass = document.getElementById('password');
+var mail = document.getElementById('email');
+
+first.addEventListener('blur', function(){
+  if(!regName.test(first)) {
+    first.style.borderColor='red';
+  }
+});
+
+last.addEventListener('blur', function(){
+  if(!regName.test(last)) {
+    last.style.borderColor='red';
+  }
+});
+
+pass.addEventListener('blur', function(){
+  if(pass.value>5) {
+    pass.style.borderColor='red';
+  }
+});
+
+mail.addEventListener('blur', function(){
+  if(!regMail.test(mail)) {
+    mail.style.borderColor='red';
+  }
+  else {
+    mail.style.borderColor='green';
+  }
+})
 
 
 // showAdminTable(1);
