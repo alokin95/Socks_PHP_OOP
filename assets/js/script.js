@@ -356,37 +356,36 @@ function showAdminTable(n) {
 
 }
 
-var regName = /^[A-Za-z]{4,15}$/;
-var regMail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
-var first = document.getElementById('firstName');
-var last = document.getElementById('lastName');
-var pass = document.getElementById('password');
-var mail = document.getElementById('email');
-
-first.addEventListener('blur', function(){
+function first() {
+  var regName = /^[A-Za-z]{4,15}$/;
+  var first = document.getElementById('firstName');
   if(!regName.test(first)) {
     first.style.borderColor='red';
   }
-});
+  else {
+    first.style.borderColor='green';
+  }
+}
 
-last.addEventListener('blur', function(){
+function last() {
+  var regName = /^[A-Za-z]{4,15}$/;
+  var last = document.getElementById('lastName');
   if(!regName.test(last)) {
     last.style.borderColor='red';
   }
-});
-
-pass.addEventListener('blur', function(){
-  if(pass.value>5) {
-    pass.style.borderColor='red';
+  else {
+    last.style.borderColor='green';
   }
-});
+}
 
-mail.addEventListener('blur', function(){
+function mail(){
+  var mail = document.getElementById('email');
+  var regMail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
   if(!regMail.test(mail)) {
     mail.style.borderColor='red';
   }
   else {
     mail.style.borderColor='green';
   }
-})
+}
