@@ -27,7 +27,7 @@
       <?php endforeach;?>
       <tr>
         <td colspan='3'>
-          <button type='submit' name='user-delete'>Delete</button>
+          <button type='submit' name='cart-delete'>Delete</button>
         </td>
       </tr>
     </table>
