@@ -45,6 +45,13 @@ nav a {
 .cart {
   flex: 1;
   text-align: center;
+  padding: 30px 50px;
+  justify-content: space-around;
+}
+
+.cart a {
+  text-decoration: none;
+  color: #333;
 }
 
 main {
@@ -101,8 +108,22 @@ main {
 
 .arrivals {
   min-height: 500px;
+  padding: 10%;
   /*background-color: rgb(241, 241, 241);*/
   background-color: white;
+}
+
+.arrivals a {
+  text-decoration: none;
+  color: #333;
+}
+
+.arrivals a:hover {
+  opacity: 0.8;
+}
+
+.arrival {
+  flex-basis: 20%;
 }
 
 .arrivals p {
@@ -729,11 +750,10 @@ main {
 }
 
 #items {
-  padding: 5%;
-  width: 60%;
-  min-height: 400px;
+  padding: 10%;
+  min-height: 700px;
+  width: 100%;
   background-color: #F6F7F8;
-  float: left;
 }
 
 .item:first-of-type {
@@ -741,10 +761,25 @@ main {
 }
 
 .item {
-  width: 80%;
+  width: 60%;
   height: 80px;
   margin: 0 auto;
   border-bottom: 1px solid black;
+}
+
+.cart-buttons {
+  min-height: 700px;
+  width: 50%;
+  margin: 0 auto;
+  background-color: #F6F7F8;
+}
+
+.cart-buttons button {
+  border: none;
+  background-color: royalblue;
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
 }
 
 .item-left {
@@ -779,13 +814,6 @@ main {
 .item img {
   max-width: 100%;
   height: 100%;
-}
-
-.checkout {
-  width: 40%;
-  background-color: #F6F7F8;
-  min-height: 400px;
-  float: right;
 }
 
 .product-right hr {
