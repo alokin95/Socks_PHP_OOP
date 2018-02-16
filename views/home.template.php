@@ -4,13 +4,14 @@
         <p>
             Grab a pair of our socks to help you keep going step<br/> after step! Every pair of toesocks provides blister<br/> protection, total foot utilization and moisture<br/> management.
         </p>
-        <a href='#'><button class='shop-now-btn'>Shop now</button></a>
+        <a href='products?category=1'><button class='shop-now-btn'>Shop now</button></a>
       </div>
     </section>
-    <section class='arrivals'>
+    <section class='arrivals flex-row'>
       <?php while ($r = mysqli_fetch_object($row)) :?>
-
-      <img src='<?=$r->src?>' alt='<?=$r->alt?>'>
+      <div class='arrival'>
+      <a href="details?productid=<?=$r->productid?>"><img src='<?=$r->src?>' alt='<?=$r->alt?>'></a>
+</div>
 
       <?php endwhile;?>
     </section>
@@ -24,7 +25,7 @@
           <p>
             Tackle the trails blister-free while keeping dirt and debris out so you can keep going mile after mile.  
           </p>
-          <a href='index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
+          <a href='products?category=1'><button class='shop-now-btn'>Shop now</button></a>
     </div>
     </section>
     <section class='mountain'>
@@ -37,7 +38,7 @@
           <p>
             Support for every adventure, big or small—not to<br/> mention protection from unpredictable elements and terrain.
           </p>
-          <a href='index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
+          <a href='products?category=2'><button class='shop-now-btn'>Shop now</button></a>
         </div>
     </section>
     <section class='road'>
@@ -50,14 +51,14 @@
         <p>
           Take your run to the next level with our patented five-toe advantage and experience blister-free comfort. 
         </p>
-        <a href='index.php?page=2'><button class='shop-now-btn'>Shop now</button></a>
+        <a href='products?category=3'><button class='shop-now-btn'>Shop now</button></a>
       </div>
     </section>
     <section class='shop-now flex-row'>
       <div class="shop-now-text">
         <h2>Compare product lines</h2>
         <h1>Find Your Sock</h1>
-        <a href='index.php?page=2'><button class='btn-white'>Shop now</button></a>
+        <a href='products?category=1'><button class='btn-white'>Shop now</button></a>
       </div>
     </section>
     <section class='benefits'>
@@ -71,14 +72,6 @@
           <div class='benefit-btn manage-btn' id='manage'>
           </div>
         </div>
-       <!-- <div class='benefits-buttons flex-row'>
-          <div class='benefit-btn-dark dark' id='util-dark'>
-          </div>
-          <div class='benefit-btn-dark dark1' id='blister-dark'>
-          </div>
-          <div class='benefit-btn-dark dark2' id='manage-dark'>
-          </div>
-        </div>-->
       </div>
       <div class='benefit-bg util fade'>
         <div class='description'>

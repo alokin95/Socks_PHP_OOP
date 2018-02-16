@@ -3,13 +3,18 @@
 
     <?= "<img src='/".$product->src."' alt='".$product->alt."'>";?>
       <div class="rating">
+        <?php if (!isset($_SESSION['email'])){
+          echo "Please login to vote";
+        }else {
+        ?>
         <button class='vote' id='<?=$product->id?>' value='5'>☆</button>
         <button class='vote' id='<?=$product->id?>' value='4'>☆</button>
         <button class='vote' id='<?=$product->id?>' value='3'>☆</button>
         <button class='vote' id='<?=$product->id?>' value='2'>☆</button>
         <button class='vote' id='<?=$product->id?>' value='1'>☆</button>
+        <?php }  ?>
       </div>
-      <p>Users rating:&nbsp;&nbsp;<span id='user-rating'><?=$ratings->rating?></span>&nbsp;/&nbsp;5</p><br/><span id='denied'></span>
+      <p>Users rating:&nbsp;&nbsp;<span id='user-rating'><?=$ratings->rating?></span>&nbsp;/&nbsp;5.0</p><br/><span id='denied'></span>
   </div>
 
 

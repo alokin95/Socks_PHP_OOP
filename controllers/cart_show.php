@@ -2,7 +2,7 @@
 
   if (!isset($_SESSION['cart'])){
 
-    require view('login');
+    Header("Location:login");
     
   }
   else {

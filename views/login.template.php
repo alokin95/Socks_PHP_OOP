@@ -1,3 +1,12 @@
+<?php
+
+if (isset($_SESSION['cart'])){
+
+  Header("location:/account");
+  
+}
+
+?>
 <div class='login'>
   <h1> Customer Login</h1>
   <h3>Registered Customers</h3>
