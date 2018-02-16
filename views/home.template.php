@@ -8,7 +8,11 @@
       </div>
     </section>
     <section class='arrivals'>
-      <p>New arrivals</p>
+      <?php while ($r = mysqli_fetch_object($row)) :?>
+
+      <img src='<?=$r->src?>' alt='<?=$r->alt?>'>
+
+      <?php endwhile;?>
     </section>
     <section class='trail'>
       <div class='trail-bg'>

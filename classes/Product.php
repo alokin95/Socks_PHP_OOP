@@ -27,6 +27,15 @@
       return $this->execute($sql);
     }
 
+    public function top(){
+
+      $sql = "SELECT * FROM product JOIN image ON product.imageid=image.imageid LIMIT 5";
+
+      return $this->execute($sql);
+
+
+    }
+
     public function getProducts() {
 
       $sql = "SELECT * FROM product p JOIN category c ON p.categoryid = c.categoryid JOIN image i ON p.imageid = i.imageid WHERE p.categoryid = ".$this->categoryid;

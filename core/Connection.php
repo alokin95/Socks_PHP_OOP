@@ -6,7 +6,7 @@
 
     public function __construct() {
       
-      $this->conn = mysqli_connect("localhost", "root", "", "socks");
+      $this->conn = mysqli_connect("localhost", "root", "", "socks1");
     
     }
 

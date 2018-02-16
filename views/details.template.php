@@ -37,13 +37,6 @@
       </form>
   </div>
 </div>
-<!-- <div class="rating">
-  <button class='vote' id='<?=$product->id?>' value='5'>☆</button>
-  <button class='vote' id='<?=$product->id?>' value='4'>☆</button>
-  <button class='vote' id='<?=$product->id?>' value='3'>☆</button>
-  <button class='vote' id='<?=$product->id?>' value='2'>☆</button>
-  <button class='vote' id='<?=$product->id?>' value='1'>☆</button>
-</div> -->
 
 <div class="flex-row more">
   <?php if(!isset($_SESSION['userid'])){?>

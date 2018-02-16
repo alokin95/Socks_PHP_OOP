@@ -17,7 +17,6 @@
 
       return $this->execute($sql);
 
-      
     }
 
     public function singleCart($id){
@@ -81,6 +80,16 @@
       $sql = "UPDATE cart SET cartid='$updated_cartid', userid='$userid' WHERE cartid='$cartid'";
 
       return $this->execute($sql);
+
+    }
+
+    public function removeFromCart($id) {
+
+      $sql = "DELETE FROM cart_items WHERE cartid='$this->session' AND id='$id'"; 
+
+      $this->execute($sql);
+
+      return $this->show();
 
     }
   }

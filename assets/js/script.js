@@ -2,38 +2,13 @@
 
 // AJAX FOR DELETING ITEMS FROM CART
 $(document).ready(function () {
-  //POCETAK
-
-  $(".vote").on('click', function(){
-    var productid = this.id;
-    var value = this.value;
-    $.ajax({
-      url: "ajax/rating.php",
-      type: "POST",
-      data : {
-        productid: productid,
-        value: value
-      },
-      success: function(response){
-        var data = JSON.parse(response);
-        if (jQuery.type(data)=='string'){
-          $("#denied").html(data);
-        }
-        else {
-          $("#user-rating").html(data['rating']);
-        }
-        
-      }
-    })
-  })
-
-  //KRAJ
+  
   $('#items').on('click', '.delete', function () {
     var productid = this.value;
     if (confirm("Do you want to remove this item from your cart?")) {
       $.ajax({
         type: "POST",
-        url: 'views/testCart.php',
+        url: 'ajax/item_remove.php',
         data: {
           productid: productid
         },
@@ -68,16 +43,30 @@ $(document).ready(function () {
 })
 //AJAX CART END
 
-//AJAX FOR CART INSERT
-
-// $("#add").submit(function(event){
-//   event.preventDefault();
-//   var id = $('#productid').val();
-
-// })
-
+//AJAX FOR RATING 
+$(".vote").on('click', function(){
+  var productid = this.id;
+  var value = this.value;
+  $.ajax({
+    url: "ajax/rating.php",
+    type: "POST",
+    data : {
+      productid: productid,
+      value: value
+    },
+    success: function(response){
+      var data = JSON.parse(response);
+      if (jQuery.type(data)=='string'){
+        $("#denied").html(data);
+      }
+      else {
+        $("#user-rating").html(data['rating']);
+      }
+      
+    }
+  })
+})
 //END
-
 
 //AJAX FOR GENDER FILTER 
 $('[name=radio-filter]').on('click', function () {
