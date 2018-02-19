@@ -4,8 +4,6 @@
 
   if (isset($_POST['register'])){
     
-    
-   
     $user = new User;
 
     $user->register();

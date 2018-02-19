@@ -360,7 +360,7 @@ function showAdminTable(n) {
 function first() {
   var regName = /^[A-Za-z]{4,15}$/;
   var first = document.getElementById('firstName');
-  if(!regName.test(first)) {
+  if(!regName.test(first.value)) {
     first.style.borderColor='red';
   }
   else {
@@ -371,7 +371,7 @@ function first() {
 function last() {
   var regName = /^[A-Za-z]{4,15}$/;
   var last = document.getElementById('lastName');
-  if(!regName.test(last)) {
+  if(!regName.test(last.value)) {
     last.style.borderColor='red';
   }
   else {
@@ -382,7 +382,7 @@ function last() {
 function mail(){
   var mail = document.getElementById('email');
   var regMail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-  if(!regMail.test(mail)) {
+  if(!regMail.test(mail.value)) {
     mail.style.borderColor='red';
   }
   else {

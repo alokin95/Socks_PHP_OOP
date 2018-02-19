@@ -171,6 +171,8 @@
         $cart_sql = "INSERT INTO cart VALUES ('','$last_id')";
         $this->execute($cart_sql);
 
+        echo "Success! Feel free to login!";
+
       }
 
       }
